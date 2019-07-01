@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"full_system_tb_func_synth.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/async_counter.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/core.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/multiplexer_32to1.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/relay_controller.v" \
+"../../../../../pdp_test_proj.srcs/sources_1/new/relay_shift_register.v" \
+"../../../../../pdp_test_proj.srcs/sim_1/new/full_system_tb.v" \
+
+# Do not sort compile order
+nosort

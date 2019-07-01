@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../pdp_test_proj.srcs/sources_1/ip/fifo_generator_0/sim/fifo_generator_0.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/async_counter.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/decoder_fast.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/encoder_fast.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/multiplexer_32to1.v" \
+"../../../../pdp_test_proj.srcs/sim_1/new/encoder_decoder_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

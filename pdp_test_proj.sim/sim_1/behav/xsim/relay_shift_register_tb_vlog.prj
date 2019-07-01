@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/relay_shift_register.v" \
+"../../../../pdp_test_proj.srcs/sim_1/new/relay_shift_register_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

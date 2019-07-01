@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="fifo_generator_pctofpga_synth_1" LaunchDir="/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/fifo_generator_pctofpga_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

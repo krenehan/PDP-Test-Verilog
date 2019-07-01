@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/sim/fifo_generator_fpgatopc.v" \
+"../../../../pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v" \
+"../../../../pdp_test_proj.srcs/sim_1/new/encoder_fast_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
