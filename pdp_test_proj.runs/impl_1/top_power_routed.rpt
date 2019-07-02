@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date             : Tue Jul  2 03:40:42 2019
+| Date             : Tue Jul  2 12:26:24 2019
 | Host             : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.332        |
+| Total On-Chip Power (W)  | 0.338        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.216        |
-| Device Static (W)        | 0.116        |
+| Dynamic (W)              | 0.220        |
+| Device Static (W)        | 0.118        |
 | Effective TJA (C/W)      | 1.9          |
-| Max Ambient (C)          | 84.4         |
-| Junction Temperature (C) | 25.6         |
+| Max Ambient (C)          | 84.3         |
+| Junction Temperature (C) | 25.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -64,9 +64,9 @@ Table of Contents
 | Signals                  |     0.009 |     2176 |       --- |             --- |
 | Block RAM                |     0.002 |        2 |       325 |            0.62 |
 | MMCM                     |     0.106 |        1 |         8 |           12.50 |
-| I/O                      |     0.060 |       65 |       400 |           16.25 |
-| Static Power             |     0.116 |          |           |                 |
-| Total                    |     0.332 |          |           |                 |
+| I/O                      |     0.063 |       65 |       400 |           16.25 |
+| Static Power             |     0.118 |          |           |                 |
+| Total                    |     0.338 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -79,7 +79,7 @@ Table of Contents
 | Vccint    |       1.000 |     0.095 |       0.054 |      0.041 |
 | Vccaux    |       1.800 |     0.082 |       0.064 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.012 |      0.001 |
-| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco25    |       2.500 |     0.002 |       0.001 |      0.001 |
 | Vcco18    |       1.800 |     0.005 |       0.004 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -176,7 +176,7 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| top                            |     0.216 |
+| top                            |     0.220 |
 |   decoder_fast_32b             |     0.008 |
 |   encoder_fast_32b             |     0.008 |
 |   frontpanel_fifo_32b_fpgatopc |     0.003 |

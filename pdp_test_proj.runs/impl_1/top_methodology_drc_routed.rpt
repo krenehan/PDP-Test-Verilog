@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date         : Tue Jul  2 03:40:40 2019
+| Date         : Tue Jul  2 12:26:21 2019
 | Host         : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -1448,7 +1448,7 @@ Related violations: <none>
 
 TIMING-35#2 Warning
 No common node in paths with the same clock  
-The clock relay_controller/relay_shift_register/state_0[3] has paths without a common node. First path found between relay_controller/relay_shift_register/state_reg[3]/Q and relay_controller/relay_shift_register/shift_done_reg/D. Please review clock constraints
+The clock relay_controller/relay_shift_register/state_0[3] has paths without a common node. First path found between relay_controller/relay_shift_register/state_reg[3]/Q and relay_controller/relay_shift_register/clk_latch_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#3 Warning
@@ -1458,27 +1458,27 @@ Related violations: <none>
 
 TIMING-35#4 Warning
 No common node in paths with the same clock  
-The clock relay_controller/state[5] has paths without a common node. First path found between relay_controller/state_reg[5]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+The clock relay_controller/state[5] has paths without a common node. First path found between relay_controller/state_reg[5]/Q and relay_controller/holding_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#5 Warning
 No common node in paths with the same clock  
-The clock relay_controller/state[6] has paths without a common node. First path found between relay_controller/state_reg[6]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+The clock relay_controller/state[6] has paths without a common node. First path found between relay_controller/state_reg[6]/Q and relay_controller/holding_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#6 Warning
 No common node in paths with the same clock  
-The clock relay_controller/state_reg_n_0_[2] has paths without a common node. First path found between relay_controller/state_reg[2]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+The clock relay_controller/state_reg_n_0_[2] has paths without a common node. First path found between relay_controller/state_reg[2]/Q and relay_controller/shift_start_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#7 Warning
 No common node in paths with the same clock  
-The clock relay_controller/state_reg_n_0_[3] has paths without a common node. First path found between relay_controller/state_reg[3]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+The clock relay_controller/state_reg_n_0_[3] has paths without a common node. First path found between relay_controller/state_reg[3]/Q and relay_controller/latch_pin_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#8 Warning
 No common node in paths with the same clock  
-The clock relay_controller/state_reg_n_0_[4] has paths without a common node. First path found between relay_controller/state_reg[4]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+The clock relay_controller/state_reg_n_0_[4] has paths without a common node. First path found between relay_controller/state_reg[4]/Q and relay_controller/relay_set_reg/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-36#1 Warning
@@ -1535,7 +1535,7 @@ XDCH-1#1 Warning
 Hold option missing in multicycle path constraint  
 A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
 set_multicycle_path -setup -from [get_clocks VIRTUAL_mmcm0_clk0] -to [get_clocks mmcm0_clk0] 2
-/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 1729)
+/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 1731)
 Related violations: <none>
 
 XDCH-1#2 Warning

@@ -107,6 +107,8 @@ set_property IOSTANDARD LVCMOS18 [get_ports reset_board]
 set_property IOSTANDARD LVDS_25 [get_ports {anodep[*]}]
 set_property IOSTANDARD LVDS_25 [get_ports {anoden[*]}]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets {anode[0]}]
+set_property DIFF_TERM TRUE [get_ports {anodep[*]}]
+set_property DIFF_TERM TRUE [get_ports {anoden[*]}]
 
 # MC1-1 - L3P
 #set_property IOSTANDARD LVDS [get_ports {}]

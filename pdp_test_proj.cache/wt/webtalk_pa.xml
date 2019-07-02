@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Jul  2 03:41:50 2019">
+<application name="pa" timeStamp="Tue Jul  2 12:19:58 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="6805337c89f14b8cb8c050a77833fd00" type="ProjectID"/>
-<property name="ProjectIteration" value="56" type="ProjectIteration"/>
+<property name="ProjectIteration" value="57" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -37,7 +37,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ReportIPStatus" value="2" type="JavaHandler"/>
 <property name="ReportMethodology" value="2" type="JavaHandler"/>
 <property name="ReportTimingSummary" value="12" type="JavaHandler"/>
-<property name="RunBitgen" value="31" type="JavaHandler"/>
+<property name="RunBitgen" value="32" type="JavaHandler"/>
 <property name="RunImplementation" value="28" type="JavaHandler"/>
 <property name="RunNoiseAnalysis" value="1" type="JavaHandler"/>
 <property name="RunSchematic" value="25" type="JavaHandler"/>
@@ -71,8 +71,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES" value="11" type="GuiHandlerData"/>
 <property name="BaseDialog_APPLY" value="12" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="50" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="370" type="GuiHandlerData"/>
-<property name="BaseDialog_YES" value="32" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="371" type="GuiHandlerData"/>
+<property name="BaseDialog_YES" value="33" type="GuiHandlerData"/>
 <property name="CheckTimingResultTreeTablePanel_CHECK_TIMING_RESULT_TREE_TABLE" value="119" type="GuiHandlerData"/>
 <property name="CheckTimingSectionPanel_CHECK_TIMING_SELECTION_TABLE" value="11" type="GuiHandlerData"/>
 <property name="ClockSummaryTreeTablePanel_CLOCK_SUMMARY_TREE_TABLE" value="12" type="GuiHandlerData"/>
@@ -96,8 +96,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ExpReportTreePanel_EXP_REPORT_TREE_TABLE" value="33" type="GuiHandlerData"/>
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="6" type="GuiHandlerData"/>
 <property name="FPGAChooser_FPGA_TABLE" value="4" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="914" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="544" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="918" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="545" type="GuiHandlerData"/>
 <property name="GeneratedClockTablePanel_DIVIDE" value="1" type="GuiHandlerData"/>
 <property name="GeneratedClockTablePanel_TABLE" value="226" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
@@ -210,7 +210,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="RDICommands_PASTE" value="2" type="GuiHandlerData"/>
 <property name="RDICommands_PROPERTIES" value="3" type="GuiHandlerData"/>
 <property name="RDICommands_REDO" value="47" type="GuiHandlerData"/>
-<property name="RDICommands_SAVE_FILE" value="527" type="GuiHandlerData"/>
+<property name="RDICommands_SAVE_FILE" value="528" type="GuiHandlerData"/>
 <property name="RDICommands_SHOW_WORLD_VIEW" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_UNDO" value="8" type="GuiHandlerData"/>
 <property name="RDICommands_WAVEFORM_NEW_CONFIGURATION" value="1" type="GuiHandlerData"/>
@@ -248,7 +248,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SrcMenu_IP_DOCUMENTATION" value="23" type="GuiHandlerData"/>
 <property name="SrcMenu_IP_HIERARCHY" value="44" type="GuiHandlerData"/>
 <property name="StaleMoreAction_OUT_OF_DATE_DETAILS" value="1" type="GuiHandlerData"/>
-<property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="35" type="GuiHandlerData"/>
+<property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="36" type="GuiHandlerData"/>
 <property name="SyntheticaStateMonitor_CANCEL" value="1" type="GuiHandlerData"/>
 <property name="TaskBanner_CLOSE" value="58" type="GuiHandlerData"/>
 <property name="TclConsoleView_TCL_CONSOLE_CODE_EDITOR" value="9" type="GuiHandlerData"/>
@@ -270,11 +270,6 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformView_NEXT_TRANSITION" value="213" type="GuiHandlerData"/>
 <property name="WaveformView_PREVIOUS_TRANSITION" value="14" type="GuiHandlerData"/>
 <property name="XdcCategoryTree_XDC_CATEGORY_TREE" value="6" type="GuiHandlerData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="27" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="5" type="TclMode"/>
 </item>
 </section>
 </application>

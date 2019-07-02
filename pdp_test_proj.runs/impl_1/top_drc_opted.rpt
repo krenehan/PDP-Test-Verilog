@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date         : Tue Jul  2 03:36:41 2019
+| Date         : Tue Jul  2 12:22:20 2019
 | Host         : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command      : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 | Design       : top
