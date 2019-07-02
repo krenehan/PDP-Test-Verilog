@@ -364,7 +364,7 @@ module top(
     okWireOR # (.N(3)) wireOR (okEH, okEHx);        
     
     // Differential signal buffers
-    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode0 (.O(anode[0]), .I(anodep[0]), .IB(anoden[0]));
+    IBUFDS #(.DIFF_TERM("TRUE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("LVDS_25")) anode0 (.O(anode[0]), .I(anodep[0]), .IB(anoden[0]));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode1 (.O(anode[1]), .I(anodep[1]), .IB(anoden[1]));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode2 (.O(anode[2]), .I(anodep[2]), .IB(anoden[2]));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode3 (.O(anode[3]), .I(anodep[3]), .IB(anoden[3]));
