@@ -1,14 +1,14 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
----------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Mon Jul  1 15:54:38 2019
-| Host         : Kevin-Optiplex-3050 running 64-bit Ubuntu 16.04.6 LTS
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
+| Date         : Tue Jul  2 03:40:32 2019
+| Host         : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command      : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 | Design       : top
 | Device       : xc7k160tffg676-1
 | Speed File   : -1
 | Design State : Fully Routed
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
 
 Report DRC
 
@@ -24,13 +24,13 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 67
+             Violations found: 68
 +-----------+----------+----------------------------+------------+
 | Rule      | Severity | Description                | Violations |
 +-----------+----------+----------------------------+------------+
 | BUFC-1    | Warning  | Input Buffer Connections   | 16         |
 | CHECK-3   | Warning  | Report rule limit reached  | 2          |
-| PDRC-153  | Warning  | Gated clock check          | 7          |
+| PDRC-153  | Warning  | Gated clock check          | 8          |
 | PLCK-12   | Warning  | Clock Placer Checks        | 1          |
 | REQP-1839 | Warning  | RAMB36 async control check | 20         |
 | REQP-1840 | Warning  | RAMB18 async control check | 20         |
@@ -161,6 +161,11 @@ Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
+Net relay_controller/relay_clock_generator/counter_reg[14]_0 is a gated clock net sourced by a combinational pin relay_controller/relay_clock_generator/data_pin_reg_i_1/O, cell relay_controller/relay_clock_generator/data_pin_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
 Net relay_controller/relay_shift_register/shift_done_inferred__0/i__n_0 is a gated clock net sourced by a combinational pin relay_controller/relay_shift_register/shift_done_inferred__0/i_/O, cell relay_controller/relay_shift_register/shift_done_inferred__0/i_. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
@@ -171,7 +176,7 @@ Resolution: Poor placement of an IO pin and a BUFG has resulted in the router us
  This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	anode0 (IBUFDS.O) is locked to B17
-	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y4
 
 Related violations: <none>
 

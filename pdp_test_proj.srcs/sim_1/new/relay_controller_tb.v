@@ -90,6 +90,10 @@ module relay_controller_tb(
         @(negedge holding);
         clear_relay <= 0;
         
+        // Wait and finish
+        repeat (5000) @(posedge clk);
+        $finish;
+        
     end
     
 endmodule

@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Mon Jul  1 15:54:41 2019
-| Host         : Kevin-Optiplex-3050 running 64-bit Ubuntu 16.04.6 LTS
+| Tool Version : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
+| Date         : Tue Jul  2 03:40:40 2019
+| Host         : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
 | Device       : xc7k160tffg676-1
@@ -23,23 +23,26 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 200
-+-----------+----------+------------------------------------------------------+------------+
-| Rule      | Severity | Description                                          | Violations |
-+-----------+----------+------------------------------------------------------+------------+
-| LUTAR-1   | Warning  | LUT drives async reset alert                         | 3          |
-| TIMING-6  | Warning  | No common primary clock between related clocks       | 1          |
-| TIMING-7  | Warning  | No common node between related clocks                | 1          |
-| TIMING-9  | Warning  | Unknown CDC Logic                                    | 1          |
-| TIMING-14 | Warning  | LUT on the clock tree                                | 11         |
-| TIMING-16 | Warning  | Large setup violation                                | 122        |
-| TIMING-17 | Warning  | Non-clocked sequential cell                          | 1          |
-| TIMING-18 | Warning  | Missing input or output delay                        | 9          |
-| TIMING-20 | Warning  | Non-clocked latch                                    | 42         |
-| TIMING-24 | Warning  | Overridden Max delay datapath only                   | 4          |
-| TIMING-28 | Warning  | Auto-derived clock referenced by a timing constraint | 2          |
-| XDCH-1    | Warning  | Hold option missing in multicycle path constraint    | 3          |
-+-----------+----------+------------------------------------------------------+------------+
+             Violations found: 300
++-----------+----------+-------------------------------------------------------------+------------+
+| Rule      | Severity | Description                                                 | Violations |
++-----------+----------+-------------------------------------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert                                | 3          |
+| TIMING-6  | Warning  | No common primary clock between related clocks              | 1          |
+| TIMING-7  | Warning  | No common node between related clocks                       | 1          |
+| TIMING-9  | Warning  | Unknown CDC Logic                                           | 1          |
+| TIMING-14 | Warning  | LUT on the clock tree                                       | 12         |
+| TIMING-16 | Warning  | Large setup violation                                       | 116        |
+| TIMING-17 | Warning  | Non-clocked sequential cell                                 | 110        |
+| TIMING-18 | Warning  | Missing input or output delay                               | 10         |
+| TIMING-20 | Warning  | Non-clocked latch                                           | 9          |
+| TIMING-24 | Warning  | Overridden Max delay datapath only                          | 4          |
+| TIMING-28 | Warning  | Auto-derived clock referenced by a timing constraint        | 2          |
+| TIMING-30 | Warning  | Sub-optimal master source pin selection for generated clock | 10         |
+| TIMING-35 | Warning  | No common node in paths with the same clock                 | 8          |
+| TIMING-36 | Warning  | Invalid Generated Clock due to missing edge propagation     | 10         |
+| XDCH-1    | Warning  | Hold option missing in multicycle path constraint           | 3          |
++-----------+----------+-------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -125,622 +128,1142 @@ Related violations: <none>
 
 TIMING-14#11 Warning
 LUT on the clock tree  
+The LUT relay_controller/relay_clock_generator/data_pin_reg_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#12 Warning
+LUT on the clock tree  
 The LUT relay_controller/relay_shift_register/shift_done_inferred__0/i_ has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.349 ns between encoder_fast_32b/state_reg[2]/Q (clocked by encoder_fast_32b/state[2]) and encoder_fast_32b/state_reg[0]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.319 ns between encoder_fast_32b/packet_written_reg/D (clocked by encoder_fast_32b/state[4]) and core/FSM_onehot_state_reg[9]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.445 ns between encoder_fast_32b/packet_written_reg/D (clocked by encoder_fast_32b/state[4]) and core/FSM_onehot_state_reg[9]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.332 ns between relay_controller/holding_reg/D (clocked by relay_controller/state_reg_n_0_[4]) and core/FSM_onehot_state_reg[7]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -1.937 ns between decoder_fast_32b/packet_read_reg/D (clocked by decoder_fast_32b/state[4]) and core/FSM_onehot_state_reg[3]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.438 ns between encoder_fast_32b/packet_written_reg/D (clocked by encoder_fast_32b/state[4]) and core/FSM_onehot_state_reg[8]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -2.371 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.069 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -2.380 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.082 ns between decoder_fast_32b/state_reg[4]/Q (clocked by decoder_fast_32b/state[4]) and decoder_fast_32b/state_reg[5]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -2.407 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.086 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -2.635 ns between relay_controller/shift_start_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and relay_controller/relay_shift_register/state_reg[1]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.125 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -2.649 ns between relay_controller/holding_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and core/FSM_onehot_state_reg[7]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.125 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -2.660 ns between relay_controller/shift_start_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and relay_controller/relay_shift_register/state_reg[0]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.125 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -2.661 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.125 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -2.728 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -2.745 ns between relay_controller/holding_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and core/FSM_onehot_state_reg[8]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -2.765 ns between relay_controller/shift_start_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and relay_controller/relay_shift_register/state_reg[2]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -2.768 ns between relay_controller/shift_start_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and relay_controller/relay_shift_register/state_reg[3]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.150 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.169 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#20 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.226 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#21 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.226 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#22 Warning
 Large setup violation  
-There is a large setup violation of -2.794 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.226 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#23 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.226 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#24 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.238 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#25 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.238 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#26 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#27 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#28 Warning
 Large setup violation  
-There is a large setup violation of -2.884 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#29 Warning
 Large setup violation  
-There is a large setup violation of -2.910 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#30 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.376 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#31 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.376 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#32 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.376 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#33 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.376 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#34 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.493 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#35 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.493 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#36 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.493 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#37 Warning
 Large setup violation  
-There is a large setup violation of -2.914 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.493 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#38 Warning
 Large setup violation  
-There is a large setup violation of -2.951 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.496 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#39 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.496 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#40 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.496 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#41 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.496 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#42 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.508 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#43 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.508 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#44 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.508 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#45 Warning
 Large setup violation  
-There is a large setup violation of -2.976 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.508 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#46 Warning
 Large setup violation  
-There is a large setup violation of -2.978 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.510 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#47 Warning
 Large setup violation  
-There is a large setup violation of -2.978 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d1_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.510 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#48 Warning
 Large setup violation  
-There is a large setup violation of -2.978 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.510 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#49 Warning
 Large setup violation  
-There is a large setup violation of -2.978 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gic0.gc0.count_d2_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.510 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#50 Warning
 Large setup violation  
-There is a large setup violation of -3.009 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[4]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.540 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#51 Warning
 Large setup violation  
-There is a large setup violation of -3.034 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.540 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#52 Warning
 Large setup violation  
-There is a large setup violation of -3.034 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.540 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#53 Warning
 Large setup violation  
-There is a large setup violation of -3.034 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.540 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#54 Warning
 Large setup violation  
-There is a large setup violation of -3.034 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_27_29/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.584 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#55 Warning
 Large setup violation  
-There is a large setup violation of -3.128 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.584 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#56 Warning
 Large setup violation  
-There is a large setup violation of -3.128 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.584 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#57 Warning
 Large setup violation  
-There is a large setup violation of -3.128 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.584 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#58 Warning
 Large setup violation  
-There is a large setup violation of -3.128 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_3_5/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.618 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#59 Warning
 Large setup violation  
-There is a large setup violation of -3.155 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.618 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#60 Warning
 Large setup violation  
-There is a large setup violation of -3.155 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.618 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#61 Warning
 Large setup violation  
-There is a large setup violation of -3.155 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.618 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#62 Warning
 Large setup violation  
-There is a large setup violation of -3.155 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_9_11/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.630 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#63 Warning
 Large setup violation  
-There is a large setup violation of -3.162 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.630 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#64 Warning
 Large setup violation  
-There is a large setup violation of -3.162 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.630 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#65 Warning
 Large setup violation  
-There is a large setup violation of -3.162 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.630 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#66 Warning
 Large setup violation  
-There is a large setup violation of -3.162 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_6_8/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.641 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#67 Warning
 Large setup violation  
-There is a large setup violation of -3.166 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.641 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#68 Warning
 Large setup violation  
-There is a large setup violation of -3.166 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.641 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#69 Warning
 Large setup violation  
-There is a large setup violation of -3.166 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.641 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#70 Warning
 Large setup violation  
-There is a large setup violation of -3.166 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_18_20/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.835 ns between decoder_fast_32b/packet_read_reg/D (clocked by decoder_fast_32b/state[5]) and core/FSM_onehot_state_reg[4]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#71 Warning
 Large setup violation  
-There is a large setup violation of -3.181 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.904 ns between relay_controller/relay_set_reg/D (clocked by relay_controller/state_reg_n_0_[4]) and core/FSM_onehot_state_reg[5]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#72 Warning
 Large setup violation  
-There is a large setup violation of -3.181 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.909 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#73 Warning
 Large setup violation  
-There is a large setup violation of -3.181 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.096 ns between decoder_fast_32b/packet_read_reg/D (clocked by decoder_fast_32b/state[5]) and core/FSM_onehot_state_reg[3]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#74 Warning
 Large setup violation  
-There is a large setup violation of -3.181 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_30_31/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#75 Warning
 Large setup violation  
-There is a large setup violation of -3.245 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#76 Warning
 Large setup violation  
-There is a large setup violation of -3.245 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#77 Warning
 Large setup violation  
-There is a large setup violation of -3.245 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#78 Warning
 Large setup violation  
-There is a large setup violation of -3.245 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_15_17/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#79 Warning
 Large setup violation  
-There is a large setup violation of -3.249 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#80 Warning
 Large setup violation  
-There is a large setup violation of -3.249 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#81 Warning
 Large setup violation  
-There is a large setup violation of -3.249 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.432 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#82 Warning
 Large setup violation  
-There is a large setup violation of -3.249 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_12_14/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#83 Warning
 Large setup violation  
-There is a large setup violation of -3.261 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[5]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#84 Warning
 Large setup violation  
-There is a large setup violation of -3.261 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#85 Warning
 Large setup violation  
-There is a large setup violation of -3.261 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[0]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#86 Warning
 Large setup violation  
-There is a large setup violation of -3.261 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_0_2/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#87 Warning
 Large setup violation  
-There is a large setup violation of -3.272 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[3]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#88 Warning
 Large setup violation  
-There is a large setup violation of -3.272 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.441 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/gpr1.dout_i_reg[4]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#89 Warning
 Large setup violation  
-There is a large setup violation of -3.272 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.446 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#90 Warning
 Large setup violation  
-There is a large setup violation of -3.272 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_21_23/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.452 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#91 Warning
 Large setup violation  
-There is a large setup violation of -3.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMA/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.452 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#92 Warning
 Large setup violation  
-There is a large setup violation of -3.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMB/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.535 ns between decoder_fast_32b/rd_en_reg/D (clocked by decoder_fast_32b/state[5]) and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#93 Warning
 Large setup violation  
-There is a large setup violation of -3.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMC/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.136 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_counter_reg[0]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#94 Warning
 Large setup violation  
-There is a large setup violation of -3.275 ns between encoder_fast_32b/wr_en_reg/D (clocked by encoder_fast_32b/state[4]) and frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg_0_63_24_26/RAMD/WE (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.161 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_counter_reg[2]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#95 Warning
 Large setup violation  
-There is a large setup violation of -3.295 ns between relay_controller/relay_set_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and core/FSM_onehot_state_reg[5]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.170 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_counter_reg[1]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#96 Warning
 Large setup violation  
-There is a large setup violation of -3.444 ns between relay_controller/relay_set_reg/D (clocked by relay_controller/state_reg_n_0_[3]) and core/FSM_onehot_state_reg[4]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.354 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[10]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#97 Warning
 Large setup violation  
-There is a large setup violation of -3.911 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_counter_reg[0]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.354 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[11]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#98 Warning
 Large setup violation  
-There is a large setup violation of -4.024 ns between encoder_fast_32b/reset_fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_counter_reg[2]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.354 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[12]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#99 Warning
 Large setup violation  
-There is a large setup violation of -4.033 ns between encoder_fast_32b/reset_fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_counter_reg[1]/D (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.354 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[9]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#100 Warning
 Large setup violation  
-There is a large setup violation of -4.262 ns between relay_controller/relay_shift_register/shift_done_reg/D (clocked by relay_controller/relay_shift_register/state_0[2]) and relay_controller/state_reg[3]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.356 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[0]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#101 Warning
 Large setup violation  
-There is a large setup violation of -4.278 ns between relay_controller/relay_shift_register/shift_done_reg/D (clocked by relay_controller/relay_shift_register/state_0[2]) and relay_controller/state_reg[2]/D (clocked by relay_controller/relay_clock_generator/S[0]). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.356 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[13]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#102 Warning
 Large setup violation  
-There is a large setup violation of -4.329 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[16]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.356 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[14]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#103 Warning
 Large setup violation  
-There is a large setup violation of -4.329 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[1]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.356 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[17]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#104 Warning
 Large setup violation  
-There is a large setup violation of -4.329 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[20]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.464 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[19]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#105 Warning
 Large setup violation  
-There is a large setup violation of -4.329 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[4]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.464 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[20]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#106 Warning
 Large setup violation  
-There is a large setup violation of -4.329 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[9]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.464 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[2]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#107 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[0]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.464 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[8]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#108 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[17]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.478 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[15]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#109 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[18]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.478 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[1]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#110 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[19]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[16]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#111 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[7]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[18]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#112 Warning
 Large setup violation  
-There is a large setup violation of -4.351 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[8]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[3]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#113 Warning
 Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[10]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[4]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#114 Warning
 Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[11]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[5]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#115 Warning
 Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[14]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[6]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#116 Warning
 Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[15]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#117 Warning
-Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[2]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#118 Warning
-Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[3]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#119 Warning
-Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[5]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#120 Warning
-Large setup violation  
-There is a large setup violation of -4.352 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[6]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#121 Warning
-Large setup violation  
-There is a large setup violation of -4.455 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[12]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#122 Warning
-Large setup violation  
-There is a large setup violation of -4.455 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[4]) and encoder_fast_32b/packet_reg[13]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.487 ns between encoder_fast_32b/fill_fifo_flag_reg/D (clocked by encoder_fast_32b/state[5]) and encoder_fast_32b/packet_reg[7]/R (clocked by sys_clk). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-17#1 Warning
 Non-clocked sequential cell  
+The clock pin relay_controller/clear_relay_sync_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/fine_counter_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_counter_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#38 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#40 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#41 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#42 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#43 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#44 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#45 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#46 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#47 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#48 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#49 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#50 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#51 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#52 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#53 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#54 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#55 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#56 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#57 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#58 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#59 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#60 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#61 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#62 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#63 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#64 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/shift_out_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/state_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/state_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/state_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/relay_shift_register/state_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/set_relay_sync_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#72 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#74 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#75 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#76 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#77 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#78 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#79 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#80 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#81 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#82 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#83 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#84 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#85 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#86 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#87 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#88 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#89 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#90 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#91 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#92 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#93 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#94 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#95 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#96 Warning
+Non-clocked sequential cell  
 The clock pin relay_controller/shift_out_bits_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#97 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#98 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#99 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#100 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#101 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#102 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#103 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/shift_out_bits_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#104 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#105 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#106 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#107 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#108 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#109 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#110 Warning
+Non-clocked sequential cell  
+The clock pin relay_controller/state_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -760,30 +1283,35 @@ Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on enable_n_pin relative to clock(s) sys_clk
+An output delay is missing on data_pin relative to clock(s) sys_clk
 Related violations: <none>
 
 TIMING-18#5 Warning
 Missing input or output delay  
-An output delay is missing on latch_pin relative to clock(s) sys_clk
+An output delay is missing on enable_n_pin relative to clock(s) sys_clk
 Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An output delay is missing on led_activelow[0] relative to clock(s) sys_clk
+An output delay is missing on latch_pin relative to clock(s) sys_clk
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An output delay is missing on led_activelow[1] relative to clock(s) sys_clk
+An output delay is missing on led_activelow[0] relative to clock(s) sys_clk
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An output delay is missing on led_activelow[2] relative to clock(s) sys_clk
+An output delay is missing on led_activelow[1] relative to clock(s) sys_clk
 Related violations: <none>
 
 TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on led_activelow[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#10 Warning
 Missing input or output delay  
 An output delay is missing on led_activelow[3] relative to clock(s) sys_clk
 Related violations: <none>
@@ -833,189 +1361,24 @@ Non-clocked latch
 The latch core/set_relay_reg cannot be properly analyzed as its control pin core/set_relay_reg/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#10 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/data_pin_reg cannot be properly analyzed as its control pin relay_controller/relay_shift_register/data_pin_reg/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#11 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[0] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#12 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[10] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[10]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#13 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[11] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[11]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#14 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[12] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[12]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#15 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[13] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[13]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#16 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[14] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[14]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#17 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[15] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[15]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#18 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[16] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[16]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#19 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[17] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[17]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#20 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[18] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[18]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#21 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[19] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[19]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#22 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[1] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#23 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[20] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[20]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#24 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[21] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[21]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#25 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[22] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[22]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#26 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[23] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[23]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#27 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[24] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[24]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#28 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[25] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[25]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#29 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[26] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[26]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#30 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[27] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[27]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#31 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[28] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[28]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#32 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[29] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[29]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#33 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[2] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#34 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[30] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[30]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#35 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[31] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[31]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#36 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[3] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#37 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[4] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#38 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[5] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#39 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[6] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#40 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[7] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#41 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[8] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[8]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#42 Warning
-Non-clocked latch  
-The latch relay_controller/relay_shift_register/shift_counter_reg[9] cannot be properly analyzed as its control pin relay_controller/relay_shift_register/shift_counter_reg[9]/G is not reached by a timing clock
-Related violations: <none>
-
 TIMING-24#1 Warning
 Overridden Max delay datapath only  
-A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks mmcm0_clk0 and sys_clk overrides a set_max_delay -datapath_only (position 72). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks mmcm0_clk0 and sys_clk overrides a set_max_delay -datapath_only (position 71). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#2 Warning
 Overridden Max delay datapath only  
-A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks mmcm0_clk0 and sys_clk overrides a set_max_delay -datapath_only (position 78). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks mmcm0_clk0 and sys_clk overrides a set_max_delay -datapath_only (position 77). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#3 Warning
 Overridden Max delay datapath only  
-A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks sys_clk and mmcm0_clk0 overrides a set_max_delay -datapath_only (position 74). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks sys_clk and mmcm0_clk0 overrides a set_max_delay -datapath_only (position 73). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#4 Warning
 Overridden Max delay datapath only  
-A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks sys_clk and mmcm0_clk0 overrides a set_max_delay -datapath_only (position 76). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+A set_clock_groups or a set_false path (see constraint position 14 in the Timing Constraints window in Vivado IDE) between clocks sys_clk and mmcm0_clk0 overrides a set_max_delay -datapath_only (position 75). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-28#1 Warning
@@ -1025,28 +1388,168 @@ Related violations: <none>
 
 TIMING-28#2 Warning
 Auto-derived clock referenced by a timing constraint  
-The auto-derived clock mmcm0_clk0 is referenced by name inside timing constraint (see constraint position 44 in the Timing Constraint window in Vivado IDE). It is recommended to reference an auto-derived clock by the pin name attached to the clock: get_clocks -of_objects [get_pins okHI/mmcm0/CLKOUT0]
+The auto-derived clock mmcm0_clk0 is referenced by name inside timing constraint (see constraint position 43 in the Timing Constraint window in Vivado IDE). It is recommended to reference an auto-derived clock by the pin name attached to the clock: get_clocks -of_objects [get_pins okHI/mmcm0/CLKOUT0]
+Related violations: <none>
+
+TIMING-30#1 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/relay_shift_register/state_0[0] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#2 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/relay_shift_register/state_0[1] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#3 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/relay_shift_register/state_0[3] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#4 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state[0] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#5 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state[1] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#6 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state[5] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#7 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state[6] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#8 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state_reg_n_0_[2] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#9 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state_reg_n_0_[3] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-30#10 Warning
+Sub-optimal master source pin selection for generated clock  
+The generated clock relay_controller/state_reg_n_0_[4] has a sub-optimal master source pin selection, timing can be pessimistic
+Related violations: <none>
+
+TIMING-35#1 Warning
+No common node in paths with the same clock  
+The clock relay_controller/relay_shift_register/state_0[1] has paths without a common node. First path found between relay_controller/relay_shift_register/state_reg[1]/Q and relay_controller/relay_shift_register/capture_shift_out_bits_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#2 Warning
+No common node in paths with the same clock  
+The clock relay_controller/relay_shift_register/state_0[3] has paths without a common node. First path found between relay_controller/relay_shift_register/state_reg[3]/Q and relay_controller/relay_shift_register/shift_done_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#3 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state[1] has paths without a common node. First path found between relay_controller/state_reg[1]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#4 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state[5] has paths without a common node. First path found between relay_controller/state_reg[5]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#5 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state[6] has paths without a common node. First path found between relay_controller/state_reg[6]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#6 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state_reg_n_0_[2] has paths without a common node. First path found between relay_controller/state_reg[2]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#7 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state_reg_n_0_[3] has paths without a common node. First path found between relay_controller/state_reg[3]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-35#8 Warning
+No common node in paths with the same clock  
+The clock relay_controller/state_reg_n_0_[4] has paths without a common node. First path found between relay_controller/state_reg[4]/Q and relay_controller/enable_n_pin_reg/D. Please review clock constraints
+Related violations: <none>
+
+TIMING-36#1 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/relay_shift_register/state_0[0]
+Related violations: <none>
+
+TIMING-36#2 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/relay_shift_register/state_0[1]
+Related violations: <none>
+
+TIMING-36#3 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/relay_shift_register/state_0[3]
+Related violations: <none>
+
+TIMING-36#4 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state[0]
+Related violations: <none>
+
+TIMING-36#5 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state[1]
+Related violations: <none>
+
+TIMING-36#6 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state[5]
+Related violations: <none>
+
+TIMING-36#7 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state[6]
+Related violations: <none>
+
+TIMING-36#8 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state_reg_n_0_[2]
+Related violations: <none>
+
+TIMING-36#9 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state_reg_n_0_[3]
+Related violations: <none>
+
+TIMING-36#10 Warning
+Invalid Generated Clock due to missing edge propagation  
+There is no rising/falling edge propagation between master clock relay_controller/relay_clock_generator/S[0] to generated clock relay_controller/state_reg_n_0_[4]
 Related violations: <none>
 
 XDCH-1#1 Warning
 Hold option missing in multicycle path constraint  
 A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
 set_multicycle_path -setup -from [get_clocks VIRTUAL_mmcm0_clk0] -to [get_clocks mmcm0_clk0] 2
-/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 1729)
+/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 1729)
 Related violations: <none>
 
 XDCH-1#2 Warning
 Hold option missing in multicycle path constraint  
 A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
 set_multicycle_path -setup -from [get_ports {okUHU[*]}] 2
-/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 78)
+/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 78)
 Related violations: <none>
 
 XDCH-1#3 Warning
 Hold option missing in multicycle path constraint  
 A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
 set_multicycle_path -setup -from [get_ports {okUH[*]}] 2
-/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 74)
+/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc (Line: 74)
 Related violations: <none>
 
 

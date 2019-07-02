@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Mon Jul  1 15:54:42 2019
-| Host             : Kevin-Optiplex-3050 running 64-bit Ubuntu 16.04.6 LTS
+| Tool Version     : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
+| Date             : Tue Jul  2 03:40:42 2019
+| Host             : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7k160tffg676-1
@@ -52,15 +52,16 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.030 |       35 |       --- |             --- |
-| Slice Logic              |     0.011 |     2570 |       --- |             --- |
-|   LUT as Logic           |     0.010 |     1041 |    101400 |            1.03 |
-|   Register               |    <0.001 |     1115 |    202800 |            0.55 |
+| Clocks                   |     0.027 |       34 |       --- |             --- |
+| Slice Logic              |     0.012 |     2657 |       --- |             --- |
+|   LUT as Logic           |     0.011 |     1064 |    101400 |            1.05 |
+|   Register               |    <0.001 |     1179 |    202800 |            0.58 |
 |   LUT as Distributed RAM |    <0.001 |       84 |     35000 |            0.24 |
 |   CARRY4                 |    <0.001 |       54 |     25350 |            0.21 |
+|   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes            |    <0.001 |        8 |    101400 |           <0.01 |
 |   Others                 |     0.000 |       75 |       --- |             --- |
-| Signals                  |     0.007 |     2108 |       --- |             --- |
+| Signals                  |     0.009 |     2176 |       --- |             --- |
 | Block RAM                |     0.002 |        2 |       325 |            0.62 |
 | MMCM                     |     0.106 |        1 |         8 |           12.50 |
 | I/O                      |     0.060 |       65 |       400 |           16.25 |
@@ -95,17 +96,17 @@ Table of Contents
 1.3 Confidence Level
 --------------------
 
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| Design implementation state | High       | Design is routed                                       |                                                                                                            |
-| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
-| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
-| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
-| Device models               | High       | Device models are Production                           |                                                                                                            |
-|                             |            |                                                        |                                                                                                            |
-| Overall confidence level    | Low        |                                                        |                                                                                                            |
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 2. Settings
@@ -151,10 +152,9 @@ Table of Contents
 | mmcm0_clkfb                                                                                                | okHI/mmcm0_clkfb                                                                                           |             9.9 |
 | okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949                                                   | okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949                                                   |             9.9 |
 | okUH0                                                                                                      | okUH[0]                                                                                                    |             9.9 |
-| relay_controller/relay_clock_generator/S[0]                                                                | relay_controller/relay_clock_generator/CLK                                                                 |             5.0 |
+| relay_controller/relay_clock_generator/S[0]                                                                | relay_controller/relay_clock_generator/S[0]                                                                |             5.0 |
 | relay_controller/relay_shift_register/state_0[0]                                                           | relay_controller/relay_shift_register/state_0[0]                                                           |             5.0 |
 | relay_controller/relay_shift_register/state_0[1]                                                           | relay_controller/relay_shift_register/state_0[1]                                                           |             5.0 |
-| relay_controller/relay_shift_register/state_0[2]                                                           | relay_controller/relay_shift_register/state_0[2]                                                           |             5.0 |
 | relay_controller/relay_shift_register/state_0[3]                                                           | relay_controller/relay_shift_register/state_0[3]                                                           |             5.0 |
 | relay_controller/state[0]                                                                                  | relay_controller/state[0]                                                                                  |             5.0 |
 | relay_controller/state[1]                                                                                  | relay_controller/state[1]                                                                                  |             5.0 |
@@ -177,7 +177,7 @@ Table of Contents
 | Name                           | Power (W) |
 +--------------------------------+-----------+
 | top                            |     0.216 |
-|   decoder_fast_32b             |     0.006 |
+|   decoder_fast_32b             |     0.008 |
 |   encoder_fast_32b             |     0.008 |
 |   frontpanel_fifo_32b_fpgatopc |     0.003 |
 |     U0                         |     0.003 |
@@ -186,10 +186,10 @@ Table of Contents
 |     U0                         |     0.001 |
 |       inst_fifo_gen            |     0.001 |
 |   okHI                         |     0.132 |
-|     core0                      |     0.015 |
-|       core0                    |     0.015 |
-|   relay_controller             |     0.014 |
-|     relay_shift_register       |     0.006 |
+|     core0                      |     0.016 |
+|       core0                    |     0.016 |
+|   relay_controller             |     0.013 |
+|     relay_shift_register       |     0.005 |
 +--------------------------------+-----------+
 
 

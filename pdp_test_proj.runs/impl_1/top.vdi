@@ -1,69 +1,72 @@
 #-----------------------------------------------------------
-# Vivado v2018.3 (64-bit)
-# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
-# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Jul  1 15:47:31 2019
-# Process ID: 27586
-# Current directory: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:18:30 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Tue Jul  2 03:35:34 2019
+# Process ID: 18555
+# Current directory: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1
 # Command line: vivado -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
-# Log file: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top.vdi
-# Journal file: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/vivado.jou
+# Log file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top.vdi
+# Journal file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace
 Command: link_design -top top -part xc7k160tffg676-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
-INFO: [Project 1-454] Reading design checkpoint '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.dcp' for cell 'frontpanel_fifo_32b_fpgatopc'
-INFO: [Project 1-454] Reading design checkpoint '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.dcp' for cell 'frontpanel_fifo_32b_pctofpga'
+INFO: [Project 1-454] Reading design checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.dcp' for cell 'frontpanel_fifo_32b_fpgatopc'
+INFO: [Project 1-454] Reading design checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.dcp' for cell 'frontpanel_fifo_32b_pctofpga'
 INFO: [Netlist 29-17] Analyzing 177 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2018.3
 INFO: [Device 21-403] Loading part xc7k160tffg676-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
-Finished Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
-Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
-Finished Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
-Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:98]
-INFO: [Timing 38-2] Deriving generated clocks [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:98]
-get_clocks: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2198.125 ; gain = 525.570 ; free physical = 144 ; free virtual = 19168
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
-Finished Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]
-Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc_clocks.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
-Finished Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc_clocks.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
-Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga_clocks.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
-Finished Parsing XDC File [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga_clocks.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
-Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
-Finished Sourcing Tcl File [/home/krenehan/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
+Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
+Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
+Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
+Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:98]
+INFO: [Timing 38-2] Deriving generated clocks [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:98]
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2159.156 ; gain = 510.586 ; free physical = 106763 ; free virtual = 202639
+WARNING: [Vivado 12-508] No pins matched 'relay_controller/relay_shift_register/state_reg[2]/Q'. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1717]
+CRITICAL WARNING: [Vivado 12-4739] create_generated_clock:No valid object(s) found for '-objects [get_pins {relay_controller/relay_shift_register/state_reg[2]/Q}]'. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1717]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]
+Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc_clocks.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
+Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc_clocks.xdc] for cell 'frontpanel_fifo_32b_fpgatopc/U0'
+Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga_clocks.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
+Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga_clocks.xdc] for cell 'frontpanel_fifo_32b_pctofpga/U0'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.rst_rd_reg2_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_rrst_wr'
+Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
+Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.xpm_cdc_single_inst_wrst_rd'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2203.125 ; gain = 0.000 ; free physical = 139 ; free virtual = 19164
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2163.160 ; gain = 0.000 ; free physical = 106812 ; free virtual = 202688
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 117 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 33 instances
@@ -72,74 +75,94 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 22 instances
 
-12 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+12 Infos, 3 Warnings, 1 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2203.125 ; gain = 832.543 ; free physical = 139 ; free virtual = 19164
+link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 2163.160 ; gain = 822.055 ; free physical = 106812 ; free virtual = 202688
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7k160t'
 Running DRC as a precondition to command opt_design
 
 Starting DRC Task
-INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 2235.141 ; gain = 32.016 ; free physical = 133 ; free virtual = 19158
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2179.191 ; gain = 16.031 ; free physical = 106806 ; free virtual = 202682
 
 Starting Cache Timing Information Task
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: f1d51dc2
+Ending Cache Timing Information Task | Checksum: 14f9555c6
 
-Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2235.141 ; gain = 0.000 ; free physical = 131 ; free virtual = 19156
+Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.27 . Memory (MB): peak = 2179.191 ; gain = 0.000 ; free physical = 106805 ; free virtual = 202681
 
 Starting Logic Optimization Task
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 46 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 1295a0a9c
+Phase 1 Retarget | Checksum: 18dffaf4e
 
-Time (s): cpu = 00:00:00.33 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 158 ; free virtual = 19091
+Time (s): cpu = 00:00:00.60 ; elapsed = 00:00:00.27 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106738 ; free virtual = 202614
 INFO: [Opt 31-389] Phase Retarget created 18 cells and removed 22 cells
 INFO: [Opt 31-1021] In phase Retarget, 13 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 8f926368
+Phase 2 Constant propagation | Checksum: 1ab4c1fb2
 
-Time (s): cpu = 00:00:00.37 ; elapsed = 00:00:00.24 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 158 ; free virtual = 19091
+Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.41 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106738 ; free virtual = 202614
 INFO: [Opt 31-389] Phase Constant propagation created 13 cells and removed 18 cells
 INFO: [Opt 31-1021] In phase Constant propagation, 14 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 1209401c2
+Phase 3 Sweep | Checksum: 109f48183
 
-Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.35 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 158 ; free virtual = 19091
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.87 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106738 ; free virtual = 202614
 INFO: [Opt 31-389] Phase Sweep created 1 cells and removed 109 cells
 INFO: [Opt 31-1021] In phase Sweep, 28 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 BUFG optimization
 INFO: [Opt 31-194] Inserted BUFG okHI/mmcm0_clk0_BUFG_inst to drive 0 load(s) on clock net okHI/mmcm0_clk0_BUFG
 INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
-Phase 4 BUFG optimization | Checksum: 100420b31
+Phase 4 BUFG optimization | Checksum: 1bcb1acc9
 
-Time (s): cpu = 00:00:00.53 ; elapsed = 00:00:00.39 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 158 ; free virtual = 19091
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.98 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106738 ; free virtual = 202614
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
-Phase 5 Shift Register Optimization | Checksum: 1df37471a
+Phase 5 Shift Register Optimization | Checksum: 2478c1e2e
 
-Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:00.54 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 157 ; free virtual = 19091
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106739 ; free virtual = 202615
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 1f8dc7828
+Phase 6 Post Processing Netlist | Checksum: 195a2ce26
 
-Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.57 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 157 ; free virtual = 19091
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106739 ; free virtual = 202615
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 INFO: [Opt 31-1021] In phase Post Processing Netlist, 7 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
@@ -161,16 +184,16 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 157 ; free virtual = 19091
-Ending Logic Optimization Task | Checksum: 1b7dc832d
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2212.191 ; gain = 0.000 ; free physical = 106739 ; free virtual = 202615
+Ending Logic Optimization Task | Checksum: 1d8d9228f
 
-Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.58 . Memory (MB): peak = 2269.141 ; gain = 0.000 ; free physical = 157 ; free virtual = 19091
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2212.191 ; gain = 0.004 ; free physical = 106739 ; free virtual = 202615
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Pwropt 34-9] Applying IDT optimizations ...
 INFO: [Pwropt 34-10] Applying ODC optimizations ...
@@ -181,8 +204,48 @@ WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clo
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/latch_pin_reg_i_1/O
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/latch_pin_reg_i_3/O
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/relay_shift_register/shift_done_inferred__0/i_/O
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.547 | TNS=-122.288 |
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.926 | TNS=-111.245 |
 INFO: [Power 33-23] Power model is not available for a0/d0/dna0
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
@@ -194,61 +257,82 @@ INFO: [Pwropt 34-201] Structural ODC has moved 1 WE to EN ports
 Number of BRAM Ports augmented: 1 newly gated: 1 Total Ports: 6
 Number of Flops added for Enable Generation: 3
 
-Ending PowerOpt Patch Enables Task | Checksum: 1007bceed
+Ending PowerOpt Patch Enables Task | Checksum: 13ca28e94
 
-Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 322 ; free virtual = 19075
-Ending Power Optimization Task | Checksum: 1007bceed
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106724 ; free virtual = 202600
+Ending Power Optimization Task | Checksum: 13ca28e94
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2612.691 ; gain = 343.551 ; free physical = 328 ; free virtual = 19080
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 2571.883 ; gain = 359.691 ; free physical = 106729 ; free virtual = 202606
 
 Starting Final Cleanup Task
 
 Starting Logic Optimization Task
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 INFO: [Opt 31-194] Inserted BUFG okHI/mmcm0_clk0_BUFG_inst to drive 0 load(s) on clock net okHI/mmcm0_clk0_BUFG
 INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
-Ending Logic Optimization Task | Checksum: 17ead7106
+Ending Logic Optimization Task | Checksum: 1f96699d1
 
-Time (s): cpu = 00:00:00.38 ; elapsed = 00:00:00.24 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 330 ; free virtual = 19082
-Ending Final Cleanup Task | Checksum: 17ead7106
+Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106729 ; free virtual = 202605
+Ending Final Cleanup Task | Checksum: 1f96699d1
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 330 ; free virtual = 19082
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106729 ; free virtual = 202605
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 330 ; free virtual = 19082
-Ending Netlist Obfuscation Task | Checksum: 17ead7106
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106729 ; free virtual = 202605
+Ending Netlist Obfuscation Task | Checksum: 1f96699d1
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 330 ; free virtual = 19082
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106729 ; free virtual = 202605
 INFO: [Common 17-83] Releasing license: Implementation
-47 Infos, 15 Warnings, 0 Critical Warnings and 0 Errors encountered.
+47 Infos, 16 Warnings, 41 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2612.691 ; gain = 409.566 ; free physical = 330 ; free virtual = 19082
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 330 ; free virtual = 19082
+opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 2571.883 ; gain = 408.723 ; free physical = 106729 ; free virtual = 202605
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106729 ; free virtual = 202605
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 327 ; free virtual = 19080
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.691 ; gain = 0.000 ; free physical = 326 ; free virtual = 19080
-INFO: [Common 17-1381] The checkpoint '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_opt.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106723 ; free virtual = 202600
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2571.883 ; gain = 0.000 ; free physical = 106725 ; free virtual = 202602
+INFO: [Common 17-1381] The checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 Command: report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
-INFO: [DRC 23-27] Running DRC with 4 threads
-INFO: [Coretcl 2-168] The results of DRC are in file /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_drc_opted.rpt.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_drc_opted.rpt.
 report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2581.906 ; gain = 9.023 ; free physical = 106716 ; free virtual = 202593
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7k160t'
-INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 Running DRC as a precondition to command place_design
-INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [DRC 23-27] Running DRC with 8 threads
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 okHI/core0/core0/r0 has an input control pin okHI/core0/core0/r0/ADDRARDADDR[10] (net: okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg_n_0_[5]) which is driven by a register (okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -295,50 +379,70 @@ INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 42 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 
 Starting Placer Task
-INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 4 CPUs
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 320 ; free virtual = 19075
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: b6188482
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106712 ; free virtual = 202589
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 139d6a149
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 320 ; free virtual = 19075
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 320 ; free virtual = 19075
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106712 ; free virtual = 202589
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106712 ; free virtual = 202589
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	anode0 (IBUFDS.O) is locked to IOB_X0Y194
-	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y4
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 132366eff
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: ea7b93b3
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 297 ; free virtual = 19057
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106706 ; free virtual = 202583
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 18d2ff5d5
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+Phase 1.3 Build Placer Netlist Model | Checksum: 1a7850a1c
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 288 ; free virtual = 19050
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106700 ; free virtual = 202577
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 18d2ff5d5
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1a7850a1c
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 288 ; free virtual = 19050
-Phase 1 Placer Initialization | Checksum: 18d2ff5d5
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106700 ; free virtual = 202577
+Phase 1 Placer Initialization | Checksum: 1a7850a1c
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 288 ; free virtual = 19050
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106700 ; free virtual = 202577
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 13c2986a1
+Phase 2.1 Floorplanning | Checksum: 168cd6d74
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 284 ; free virtual = 19047
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106693 ; free virtual = 202571
 
 Phase 2.2 Physical Synthesis In Placer
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
@@ -352,7 +456,7 @@ INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found i
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for HD net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 264 ; free virtual = 19029
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106662 ; free virtual = 202539
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -370,293 +474,301 @@ Summary of Physical Synthesis Optimizations
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.2 Physical Synthesis In Placer | Checksum: 1659b23ee
+Phase 2.2 Physical Synthesis In Placer | Checksum: 20fc6b0af
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:04 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 264 ; free virtual = 19029
-Phase 2 Global Placement | Checksum: ff2850a4
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:10 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106663 ; free virtual = 202540
+Phase 2 Global Placement | Checksum: 1b6ae7064
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 273 ; free virtual = 19038
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:10 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106663 ; free virtual = 202540
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: ff2850a4
+Phase 3.1 Commit Multi Column Macros | Checksum: 1b6ae7064
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 273 ; free virtual = 19038
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:10 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106663 ; free virtual = 202540
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 19b0ebfbf
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 23b1fd022
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 272 ; free virtual = 19037
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:11 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106663 ; free virtual = 202540
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1bb1dce0b
+Phase 3.3 Area Swap Optimization | Checksum: 2c34a3394
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 272 ; free virtual = 19037
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:11 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106662 ; free virtual = 202539
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1686b0992
+Phase 3.4 Pipeline Register Optimization | Checksum: 206eca6d9
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 272 ; free virtual = 19037
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:11 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106662 ; free virtual = 202539
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 103845417
+Phase 3.5 Fast Optimization | Checksum: 29b426b0e
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 272 ; free virtual = 19038
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:11 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106660 ; free virtual = 202538
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 121086efe
+Phase 3.6 Small Shape Detail Placement | Checksum: 1cd94f8a7
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 268 ; free virtual = 19034
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:13 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106661 ; free virtual = 202538
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 165826ee2
+Phase 3.7 Re-assign LUT pins | Checksum: 1a503e3ed
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 269 ; free virtual = 19035
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:13 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106661 ; free virtual = 202538
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 112b02e5e
+Phase 3.8 Pipeline Register Optimization | Checksum: 22af370e1
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 269 ; free virtual = 19035
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:13 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106661 ; free virtual = 202538
 
 Phase 3.9 Fast Optimization
-Phase 3.9 Fast Optimization | Checksum: f14c597a
+Phase 3.9 Fast Optimization | Checksum: 221c4a53f
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 269 ; free virtual = 19035
-Phase 3 Detail Placement | Checksum: f14c597a
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:14 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106661 ; free virtual = 202538
+Phase 3 Detail Placement | Checksum: 221c4a53f
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 269 ; free virtual = 19036
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:14 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106661 ; free virtual = 202538
 
 Phase 4 Post Placement Optimization and Clean-Up
 
 Phase 4.1 Post Commit Optimization
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: ec45c4bc
+Post Placement Optimization Initialization | Checksum: 1d7b24fa7
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Place 46-46] BUFG insertion identified 0 candidate nets, 0 success, 0 bufg driver replicated, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason
-Phase 4.1.1.1 BUFG Insertion | Checksum: ec45c4bc
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1d7b24fa7
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 268 ; free virtual = 19035
-INFO: [Place 30-746] Post Placement Timing Summary WNS=-2.928. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 12bd3a991
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:15 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106653 ; free virtual = 202531
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-1.006. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: d558a56d
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 260 ; free virtual = 19028
-Phase 4.1 Post Commit Optimization | Checksum: 12bd3a991
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106656 ; free virtual = 202533
+Phase 4.1 Post Commit Optimization | Checksum: d558a56d
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 260 ; free virtual = 19028
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106656 ; free virtual = 202533
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 12bd3a991
+Phase 4.2 Post Placement Cleanup | Checksum: d558a56d
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 262 ; free virtual = 19029
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106656 ; free virtual = 202534
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 12bd3a991
+Phase 4.3 Placer Reporting | Checksum: d558a56d
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 262 ; free virtual = 19029
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:01 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106657 ; free virtual = 202534
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 262 ; free virtual = 19029
-Phase 4.4 Final Placement Cleanup | Checksum: 1c50daa83
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106657 ; free virtual = 202534
+Phase 4.4 Final Placement Cleanup | Checksum: dd2e7da4
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 262 ; free virtual = 19029
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1c50daa83
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:01 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106657 ; free virtual = 202534
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: dd2e7da4
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 262 ; free virtual = 19029
-Ending Placer Task | Checksum: 1c3e31da1
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:01 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106657 ; free virtual = 202534
+Ending Placer Task | Checksum: abf48a7f
 
-Time (s): cpu = 00:00:50 ; elapsed = 00:00:40 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 278 ; free virtual = 19046
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:01 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106684 ; free virtual = 202561
 INFO: [Common 17-83] Releasing license: Implementation
-79 Infos, 62 Warnings, 0 Critical Warnings and 0 Errors encountered.
+79 Infos, 63 Warnings, 61 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:42 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 278 ; free virtual = 19046
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 278 ; free virtual = 19046
+place_design: Time (s): cpu = 00:01:32 ; elapsed = 00:01:06 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106684 ; free virtual = 202561
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106684 ; free virtual = 202561
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 277 ; free virtual = 19047
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106682 ; free virtual = 202561
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.53 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 269 ; free virtual = 19044
-INFO: [Common 17-1381] The checkpoint '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_placed.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.49 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106681 ; free virtual = 202561
+INFO: [Common 17-1381] The checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file top_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 259 ; free virtual = 19031
+report_io: Time (s): cpu = 00:00:00.39 ; elapsed = 00:00:00.53 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106667 ; free virtual = 202545
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_placed.rpt -pb top_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 275 ; free virtual = 19047
+report_control_sets: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106680 ; free virtual = 202558
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7k160t'
 Running DRC as a precondition to command route_design
-INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [DRC 23-27] Running DRC with 8 threads
 WARNING: [DRC PLCK-12] Clock Placer Checks: Poor placement for routing between an IO pin and BUFG. 
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
  This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	anode0 (IBUFDS.O) is locked to IOB_X0Y194
-	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+	anode_BUFG[0]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y4
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 1 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 
 
 Starting Routing Task
-INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
-Checksum: PlaceDB: eb52a083 ConstDB: 0 ShapeSum: d8907d1e RouteDB: 0
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+Checksum: PlaceDB: 8e129b63 ConstDB: 0 ShapeSum: 1de1ef1c RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 11ed015a2
+Phase 1 Build RT Design | Checksum: 161d476ec
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:17 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 194 ; free virtual = 18861
-Post Restoration Checksum: NetGraph: 6c240905 NumContArr: b2ac0c9d Constraints: 0 Timing: 0
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106489 ; free virtual = 202368
+Post Restoration Checksum: NetGraph: d1a09ebe NumContArr: 9033d82e Constraints: 0 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 11ed015a2
+Phase 2.1 Create Timer | Checksum: 161d476ec
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:17 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 164 ; free virtual = 18832
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106460 ; free virtual = 202338
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 11ed015a2
+Phase 2.2 Fix Topology Constraints | Checksum: 161d476ec
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:17 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 145 ; free virtual = 18813
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106424 ; free virtual = 202303
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 11ed015a2
+Phase 2.3 Pre Route Cleanup | Checksum: 161d476ec
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:17 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 144 ; free virtual = 18813
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106424 ; free virtual = 202303
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 1df4a91fa
+Phase 2.4 Update Timing | Checksum: 22d572da8
 
-Time (s): cpu = 00:00:28 ; elapsed = 00:00:18 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 135 ; free virtual = 18804
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-3.011 | TNS=-117.274| WHS=-1.577 | THS=-80.777|
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:23 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106415 ; free virtual = 202294
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.816 | TNS=-65.779| WHS=-2.482 | THS=-82.849|
 
 
 Phase 2.5 Update Timing for Bus Skew
 
 Phase 2.5.1 Update Timing
-Phase 2.5.1 Update Timing | Checksum: 246f931df
+Phase 2.5.1 Update Timing | Checksum: 2285ebf18
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 134 ; free virtual = 18803
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-3.011 | TNS=-117.711| WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:24 . Memory (MB): peak = 2581.906 ; gain = 0.000 ; free physical = 106413 ; free virtual = 202291
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.816 | TNS=-65.882| WHS=N/A    | THS=N/A    |
 
-Phase 2.5 Update Timing for Bus Skew | Checksum: 1b0a1fa6d
+Phase 2.5 Update Timing for Bus Skew | Checksum: 19196435d
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 133 ; free virtual = 18803
-Phase 2 Router Initialization | Checksum: 1e4db2682
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:24 . Memory (MB): peak = 2595.895 ; gain = 13.988 ; free physical = 106412 ; free virtual = 202291
+Phase 2 Router Initialization | Checksum: 24ddec311
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 2620.695 ; gain = 0.000 ; free physical = 133 ; free virtual = 18803
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:24 . Memory (MB): peak = 2595.895 ; gain = 13.988 ; free physical = 106412 ; free virtual = 202291
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 12433ca97
+Phase 3 Initial Routing | Checksum: 1a1ee7947
 
-Time (s): cpu = 00:01:02 ; elapsed = 00:00:28 . Memory (MB): peak = 2690.492 ; gain = 69.797 ; free physical = 198 ; free virtual = 18777
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:29 . Memory (MB): peak = 2809.895 ; gain = 227.988 ; free physical = 106369 ; free virtual = 202248
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 210
- Number of Nodes with overlaps = 25
- Number of Nodes with overlaps = 12
- Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 251
+ Number of Nodes with overlaps = 21
+ Number of Nodes with overlaps = 10
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 5
  Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.280 | TNS=-311.652| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.468 | TNS=-230.499| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 13ee08de2
+Phase 4.1 Global Iteration 0 | Checksum: 9b5c6610
 
-Time (s): cpu = 00:03:59 ; elapsed = 00:01:45 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 285 ; free virtual = 18745
+Time (s): cpu = 00:04:09 ; elapsed = 00:01:51 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106341 ; free virtual = 202219
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.280 | TNS=-371.439| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-3.067 | TNS=-266.817| WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 1b5ddbb09
+Phase 4.2 Global Iteration 1 | Checksum: 24f7e1a43
 
-Time (s): cpu = 00:03:59 ; elapsed = 00:01:45 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 302 ; free virtual = 18760
-Phase 4 Rip-up And Reroute | Checksum: 1b5ddbb09
+Time (s): cpu = 00:04:10 ; elapsed = 00:01:51 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106361 ; free virtual = 202240
+Phase 4 Rip-up And Reroute | Checksum: 24f7e1a43
 
-Time (s): cpu = 00:03:59 ; elapsed = 00:01:45 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 302 ; free virtual = 18760
+Time (s): cpu = 00:04:10 ; elapsed = 00:01:51 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106361 ; free virtual = 202240
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 1db024abd
+Phase 5.1.1 Update Timing | Checksum: 251833f7c
 
-Time (s): cpu = 00:04:00 ; elapsed = 00:01:45 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 302 ; free virtual = 18761
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.280 | TNS=-371.439| WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:04:10 ; elapsed = 00:01:52 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106362 ; free virtual = 202241
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.468 | TNS=-230.499| WHS=N/A    | THS=N/A    |
 
  Number of Nodes with overlaps = 0
-Phase 5.1 Delay CleanUp | Checksum: 112a938ec
+Phase 5.1 Delay CleanUp | Checksum: 1cf4fe055
 
-Time (s): cpu = 00:04:00 ; elapsed = 00:01:46 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 305 ; free virtual = 18760
+Time (s): cpu = 00:04:11 ; elapsed = 00:01:52 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106362 ; free virtual = 202241
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 112a938ec
+Phase 5.2 Clock Skew Optimization | Checksum: 1cf4fe055
 
-Time (s): cpu = 00:04:00 ; elapsed = 00:01:46 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 305 ; free virtual = 18760
-Phase 5 Delay and Skew Optimization | Checksum: 112a938ec
+Time (s): cpu = 00:04:11 ; elapsed = 00:01:52 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106362 ; free virtual = 202241
+Phase 5 Delay and Skew Optimization | Checksum: 1cf4fe055
 
-Time (s): cpu = 00:04:00 ; elapsed = 00:01:46 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 305 ; free virtual = 18760
+Time (s): cpu = 00:04:11 ; elapsed = 00:01:52 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106362 ; free virtual = 202241
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 15b9061ac
+Phase 6.1.1 Update Timing | Checksum: 110b7e2f4
 
-Time (s): cpu = 00:04:00 ; elapsed = 00:01:46 . Memory (MB): peak = 2771.492 ; gain = 150.797 ; free physical = 305 ; free virtual = 18760
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.280 | TNS=-369.634| WHS=-1.327 | THS=-7.449 |
+Time (s): cpu = 00:04:12 ; elapsed = 00:01:52 . Memory (MB): peak = 2912.895 ; gain = 330.988 ; free physical = 106362 ; free virtual = 202241
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.468 | TNS=-230.626| WHS=-1.868 | THS=-14.659|
 
+Phase 6.1 Hold Fix Iter | Checksum: 19dca2f4d
 
-Phase 6.1.2 Lut RouteThru Assignment for hold
-Phase 6.1.2 Lut RouteThru Assignment for hold | Checksum: 1f2576bcf
+Time (s): cpu = 00:05:43 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106293 ; free virtual = 202172
+WARNING: [Route 35-468] The router encountered 8 pins that are both setup-critical and hold-critical and tried to fix hold violations at the expense of setup slack. Such pins are:
+	core/FSM_onehot_state[7]_i_1/I3
+	core/FSM_onehot_state[8]_i_1/I3
+	encoder_fast_32b/fill_fifo_flag_reg/D
+	encoder_fast_32b/fill_fifo_flag_reg_i_1/I4
+	encoder_fast_32b/state[4]_i_2/I2
+	relay_controller/relay_shift_register/data_pin_reg_i_2/I0
+	relay_controller/relay_shift_register/data_pin_reg/CLR
+	relay_controller/relay_shift_register/clk_latch_reg/D
 
-Time (s): cpu = 00:08:24 ; elapsed = 00:05:44 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1094 ; free virtual = 18663
-Phase 6.1 Hold Fix Iter | Checksum: 1f2576bcf
+Phase 6 Post Hold Fix | Checksum: 1a04fe603
 
-Time (s): cpu = 00:08:24 ; elapsed = 00:05:44 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1094 ; free virtual = 18663
-
-Phase 6.2 Additional Hold Fix
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.459 | TNS=-421.530| WHS=-0.003 | THS=-0.003 |
-
-Phase 6.2 Additional Hold Fix | Checksum: 159806084
-
-Time (s): cpu = 00:08:25 ; elapsed = 00:05:44 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1100 ; free virtual = 18663
-WARNING: [Route 35-468] The router encountered 43 pins that are both setup-critical and hold-critical and tried to fix hold violations at the expense of setup slack. Such pins are:
-	decoder_fast_32b/full_packet_reg[0]/D
-	decoder_fast_32b/full_packet_reg[4]/D
-	encoder_fast_32b/reset_fill_fifo_flag_reg_i_1/I1
-	encoder_fast_32b/fill_fifo_flag_reg_i_1/I3
-	encoder_fast_32b/wr_en_reg_i_1/I5
-	encoder_fast_32b/fill_fifo_flag_reg_i_1/I0
-	encoder_fast_32b/reset_fill_fifo_flag_reg_i_1/I3
-	encoder_fast_32b/fill_fifo_flag_reg_i_1/I1
-	encoder_fast_32b/reset_fill_fifo_flag_reg_i_1/I2
-	encoder_fast_32b/wr_en_reg/D
-	.. and 33 more pins.
-
-Phase 6 Post Hold Fix | Checksum: 1be55d360
-
-Time (s): cpu = 00:08:25 ; elapsed = 00:05:44 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1100 ; free virtual = 18663
+Time (s): cpu = 00:05:43 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106299 ; free virtual = 202178
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.30299 %
-  Global Horizontal Routing Utilization  = 0.287468 %
+  Global Vertical Routing Utilization    = 0.303695 %
+  Global Horizontal Routing Utilization  = 0.312745 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -666,10 +778,10 @@ Router Utilization Summary
   Number of Node Overlaps             = 0
 
 Congestion Report
-North Dir 1x1 Area, Max Cong = 47.7477%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 47.7477%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 38.2353%, No Congested Regions.
-West Dir 1x1 Area, Max Cong = 44.1176%, No Congested Regions.
+North Dir 1x1 Area, Max Cong = 48.6486%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 36.9369%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 36.7647%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 48.5294%, No Congested Regions.
 
 ------------------------------
 Reporting congestion hotspots
@@ -691,64 +803,65 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 7 Route finalize | Checksum: 17f27b944
+Phase 7 Route finalize | Checksum: 28bceefb1
 
-Time (s): cpu = 00:08:25 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1100 ; free virtual = 18663
+Time (s): cpu = 00:05:43 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106301 ; free virtual = 202179
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 17f27b944
+Phase 8 Verifying routed nets | Checksum: 28bceefb1
 
-Time (s): cpu = 00:08:25 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1100 ; free virtual = 18662
+Time (s): cpu = 00:05:43 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106300 ; free virtual = 202179
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 145c97826
+Phase 9 Depositing Routes | Checksum: 2274528e3
 
-Time (s): cpu = 00:08:25 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1099 ; free virtual = 18662
+Time (s): cpu = 00:05:43 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106300 ; free virtual = 202179
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
-Phase 10.1 Update Timing | Checksum: 15b9a852f
+Phase 10.1 Update Timing | Checksum: 2134d2ee5
 
-Time (s): cpu = 00:08:26 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1104 ; free virtual = 18663
-INFO: [Route 35-57] Estimated Timing Summary | WNS=-4.459 | TNS=-421.787| WHS=0.052  | THS=0.000  |
+Time (s): cpu = 00:05:44 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106307 ; free virtual = 202185
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-4.490 | TNS=-360.167| WHS=-0.302 | THS=-0.490 |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
-Phase 10 Post Router Timing | Checksum: 15b9a852f
+Phase 10 Post Router Timing | Checksum: 2134d2ee5
 
-Time (s): cpu = 00:08:26 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1104 ; free virtual = 18663
+Time (s): cpu = 00:05:44 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106307 ; free virtual = 202185
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:08:26 ; elapsed = 00:05:45 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1178 ; free virtual = 18737
+Time (s): cpu = 00:05:44 ; elapsed = 00:02:24 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106443 ; free virtual = 202321
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-99 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+98 Infos, 66 Warnings, 61 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:08:28 ; elapsed = 00:05:47 . Memory (MB): peak = 3000.492 ; gain = 379.797 ; free physical = 1178 ; free virtual = 18738
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3000.492 ; gain = 0.000 ; free physical = 1178 ; free virtual = 18738
+route_design: Time (s): cpu = 00:05:50 ; elapsed = 00:02:30 . Memory (MB): peak = 2977.895 ; gain = 395.988 ; free physical = 106443 ; free virtual = 202321
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2977.895 ; gain = 0.000 ; free physical = 106443 ; free virtual = 202321
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3000.492 ; gain = 0.000 ; free physical = 1172 ; free virtual = 18736
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2977.895 ; gain = 0.000 ; free physical = 106441 ; free virtual = 202321
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.19 . Memory (MB): peak = 3000.492 ; gain = 0.000 ; free physical = 1172 ; free virtual = 18738
-INFO: [Common 17-1381] The checkpoint '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_routed.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.46 . Memory (MB): peak = 2977.895 ; gain = 0.000 ; free physical = 106437 ; free virtual = 202319
+INFO: [Common 17-1381] The checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 Command: report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
-INFO: [DRC 23-27] Running DRC with 4 threads
-INFO: [Coretcl 2-168] The results of DRC are in file /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_drc_routed.rpt.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_drc_routed.rpt.
 report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2981.906 ; gain = 3.012 ; free physical = 106435 ; free virtual = 202315
 INFO: [runtcl-4] Executing : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 Command: report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative decoder_fast_32b/full_packet_reg[4]_i_1/O
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative decoder_fast_32b/state[5]_i_1__1/O
@@ -757,25 +870,106 @@ WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clo
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/latch_pin_reg_i_1/O
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/latch_pin_reg_i_3/O
 WARNING: [Timing 38-172] LUT was found on clock network. Both rising/falling clock edges are propagated from LUT output pin. Use set_clock_sense to specify if that clock should be inverted or not. e.g. set_clock_sense -positive/-negative relay_controller/relay_shift_register/shift_done_inferred__0/i_/O
-INFO: [DRC 23-133] Running Methodology with 4 threads
-INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top_methodology_drc_routed.rpt.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top_methodology_drc_routed.rpt.
 report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 2981.906 ; gain = 0.000 ; free physical = 106424 ; free virtual = 202304
 INFO: [runtcl-4] Executing : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 Command: report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 INFO: [Power 33-23] Power model is not available for a0/d0/dna0
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
-WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
-INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:72]
+WARNING: [Constraints 18-96] Setting input delay on a clock pin 'okUH[0]' is not supported, ignoring it [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:73]
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'VIRTUAL_mmcm0_clk0' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command. [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc:1728]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 Running Vector-less Activity Propagation...
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 
 Finished Running Vector-less Activity Propagation
-114 Infos, 76 Warnings, 0 Critical Warnings and 0 Errors encountered.
+113 Infos, 77 Warnings, 91 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file top_route_status.rpt -pb top_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
-INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
 WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
 INFO: [runtcl-4] Executing : report_incremental_reuse -file top_incremental_reuse_routed.rpt
@@ -783,13 +977,33 @@ INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Inf
 INFO: [runtcl-4] Executing : report_clock_utilization -file top_clock_utilization_routed.rpt
 INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file top_bus_skew_routed.rpt -pb top_bus_skew_routed.pb -rpx top_bus_skew_routed.rpx
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
-INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/relay_shift_register/state_0[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[0] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[1] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[5] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state[6] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[2] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[3] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock relay_controller/state_reg_n_0_[4] has no logical paths from master clock relay_controller/relay_clock_generator/S[0].
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
 Command: write_bitstream -force top.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7k160t'
 Running DRC as a precondition to command write_bitstream
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
-INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [DRC 23-27] Running DRC with 8 threads
 WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer okHI/iob_regs[16].iobf0/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
 WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer okHI/iob_regs[17].iobf0/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
 WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer okHI/iob_regs[18].iobf0/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
@@ -814,6 +1028,7 @@ WARNING: [DRC PDRC-153] Gated clock check: Net decoder_fast_32b/next_state is a 
 WARNING: [DRC PDRC-153] Gated clock check: Net encoder_fast_32b/fill_fifo_flag_reg_i_2_n_0 is a gated clock net sourced by a combinational pin encoder_fast_32b/fill_fifo_flag_reg_i_2/O, cell encoder_fast_32b/fill_fifo_flag_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net encoder_fast_32b/wr_en_reg_i_2_n_0 is a gated clock net sourced by a combinational pin encoder_fast_32b/wr_en_reg_i_2/O, cell encoder_fast_32b/wr_en_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net relay_controller/latch_pin_reg_i_1_n_0 is a gated clock net sourced by a combinational pin relay_controller/latch_pin_reg_i_1/O, cell relay_controller/latch_pin_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net relay_controller/relay_clock_generator/counter_reg[14]_0 is a gated clock net sourced by a combinational pin relay_controller/relay_clock_generator/data_pin_reg_i_1/O, cell relay_controller/relay_clock_generator/data_pin_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net relay_controller/relay_shift_register/shift_done_inferred__0/i__n_0 is a gated clock net sourced by a combinational pin relay_controller/relay_shift_register/shift_done_inferred__0/i_/O, cell relay_controller/relay_shift_register/shift_done_inferred__0/i_. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 okHI/core0/core0/r0 has an input control pin okHI/core0/core0/r0/ADDRARDADDR[10] (net: okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg_n_0_[5]) which is driven by a register (okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 okHI/core0/core0/r0 has an input control pin okHI/core0/core0/r0/ADDRARDADDR[11] (net: okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg_n_0_[6]) which is driven by a register (okHI/core0/core0/l287f1d33aab074157010cd04cb03cd77_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
@@ -856,22 +1071,22 @@ WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 okHI/core0/cor
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram has an input control pin okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/WEBWE[2] (net: okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/p_19_out) which is driven by a register (okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram has an input control pin okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/WEBWE[3] (net: okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/p_19_out) which is driven by a register (okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 WARNING: [DRC RTSTAT-10] No routable loads: 4 net(s) have no routable loads. The problem bus(es) and/or net(s) are okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i, frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, and frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 66 Warnings
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 67 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
-INFO: [Designutils 20-2272] Running write_bitstream with 4 threads.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
 Loading data files...
 Loading site data...
 Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 45100832 bits.
+Bitstream compression saved 44560704 bits.
 Writing bitstream ./top.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
-INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] '/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Mon Jul  1 15:55:02 2019. For additional details about this file, please refer to the WebTalk help file at /home/krenehan/Vivado/2018.3/doc/webtalk_introduction.html.
+INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
+INFO: [Common 17-186] '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Tue Jul  2 03:41:13 2019. For additional details about this file, please refer to the WebTalk help file at /tools/cad/xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
 INFO: [Common 17-83] Releasing license: Implementation
-134 Infos, 143 Warnings, 1 Critical Warnings and 0 Errors encountered.
+133 Infos, 145 Warnings, 112 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 3056.520 ; gain = 0.000 ; free physical = 1063 ; free virtual = 18688
-INFO: [Common 17-206] Exiting Vivado at Mon Jul  1 15:55:02 2019...
+write_bitstream: Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 3004.492 ; gain = 21.594 ; free physical = 106368 ; free virtual = 202267
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  2 03:41:14 2019...

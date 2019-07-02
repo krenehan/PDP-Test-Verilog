@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc rfile:../../../pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc rfile:../../../pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN C26 [get_ports {okUHU[8]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

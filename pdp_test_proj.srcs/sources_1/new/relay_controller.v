@@ -54,6 +54,7 @@ module relay_controller(
     wire shift_done;
     wire slow_clk_unbuffered;
     wire slow_clk;
+    wire slower_clk;
     
     // Registers for state machine
     reg [6:0] state = IDLE;
@@ -62,7 +63,8 @@ module relay_controller(
     // Instantiate relay_clock_generator
     relay_clock_generator_no_reset relay_clock_generator(
         .clk(clk),
-        .slow_clk(slow_clk)
+        .slow_clk(slow_clk),
+        .slower_clk(slower_clk)
     );
     
 //    // Global clock buffer for slow_clk
@@ -75,6 +77,7 @@ module relay_controller(
     relay_shift_register relay_shift_register(
         .clk(clk),
         .slow_clk(slow_clk),
+        .slower_clk(slower_clk),
         .shift_start(shift_start),
         .shift_out_bits(shift_out_bits),
         .shift_done(shift_done),

@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------
-| Tool Version              : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date                      : Mon Jul  1 15:48:48 2019
-| Host                      : Kevin-Optiplex-3050 running 64-bit Ubuntu 16.04.6 LTS
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------
+| Tool Version              : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
+| Date                      : Tue Jul  2 03:37:51 2019
+| Host                      : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
 | Device                    : xc7k160t
@@ -10,7 +10,7 @@ Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 | Package                   : ffg676
 | Package Version           : FINAL 2012-06-26
 | Package Pin Delay Version : VERS. 2.0 2012-06-26
--------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 
 IO Information
 

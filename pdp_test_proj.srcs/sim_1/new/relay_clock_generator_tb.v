@@ -30,12 +30,14 @@ module relay_clock_generator_tb(
     
     // Outputs from DUT
     wire slow_clk;
+    wire slower_clk;
     
     // Instantiate DUT
     relay_clock_generator rcg(
         .reset(reset),
         .clk(clk),
-        .slow_clk(slow_clk)
+        .slow_clk(slow_clk),
+        .slower_clk(slower_clk)
     );
     
     always begin
@@ -49,7 +51,7 @@ module relay_clock_generator_tb(
         reset <= 1;
         clk <= 0;
         
-        repeat (3) @(posedge clk);
+        repeat (10) @(posedge clk);
         reset <= 0;
         
     end

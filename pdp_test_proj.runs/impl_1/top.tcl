@@ -68,15 +68,15 @@ set rc [catch {
   create_project -in_memory -part xc7k160tffg676-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.cache/wt [current_project]
-  set_property parent.project_path /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.xpr [current_project]
-  set_property ip_output_repo /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.cache/ip [current_project]
+  set_property webtalk.parent_dir /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.cache/wt [current_project]
+  set_property parent.project_path /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.xpr [current_project]
+  set_property ip_output_repo /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/synth_1/top.dcp
-  read_ip -quiet /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xci
-  read_ip -quiet /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xci
-  read_xdc /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc
+  add_files -quiet /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/top.dcp
+  read_ip -quiet /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xci
+  read_ip -quiet /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_pctofpga/fifo_generator_pctofpga.xci
+  read_xdc /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc
   link_design -top top -part xc7k160tffg676-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -22,11 +22,12 @@
 
 module relay_clock_generator_no_reset(
     input clk,
-    output reg slow_clk
+    output reg slow_clk,
+    output reg slower_clk
     );
     
     // Internal registers
-    reg [14:0] counter = 15'b0;
+    reg [14:0] counter = 0;
     
     // Increment counter
     always @(posedge clk) begin
@@ -35,10 +36,16 @@ module relay_clock_generator_no_reset(
     
     // Tie slow_clk to MSB counter
     always @(*) begin
-        if (counter[14]) begin
+        if (counter[13]) begin
             slow_clk <= 1'b1;
         end else begin
             slow_clk <= 1'b0;
+        end
+        
+        if (counter[14]) begin
+            slower_clk <= 1'b1;
+        end else begin
+            slower_clk <= 1'b0;
         end
     end
     

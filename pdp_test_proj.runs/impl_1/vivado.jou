@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2018.3 (64-bit)
-# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
-# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Jul  1 15:47:31 2019
-# Process ID: 27586
-# Current directory: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:18:30 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Tue Jul  2 03:35:34 2019
+# Process ID: 18555
+# Current directory: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1
 # Command line: vivado -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
-# Log file: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/top.vdi
-# Journal file: /home/krenehan/Documents/vivado_projects/pdp_test_proj/pdp_test_proj.runs/impl_1/vivado.jou
+# Log file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/top.vdi
+# Journal file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace
