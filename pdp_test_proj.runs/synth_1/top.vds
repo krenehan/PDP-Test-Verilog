@@ -2,8 +2,8 @@
 # Vivado v2018.3.1 (64-bit)
 # SW Build 2489853 on Tue Mar 26 04:18:30 MDT 2019
 # IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
-# Start of session at: Wed Jul 10 20:18:33 2019
-# Process ID: 32370
+# Start of session at: Thu Jul 11 04:31:49 2019
+# Process ID: 12378
 # Current directory: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/top.vds
@@ -15,10 +15,10 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 32400 
+INFO: Helper process launched with PID 12409 
 WARNING: [Synth 8-2490] overwriting previous definition of module xpm_cdc_async_rst [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15360]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1440.785 ; gain = 99.504 ; free physical = 190526 ; free virtual = 252123
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1440.863 ; gain = 72.504 ; free physical = 191630 ; free virtual = 253138
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:24]
 	Parameter COUNTER_WIDTH bound to: 27 - type: integer 
@@ -41,15 +41,25 @@ INFO: [Synth 8-6157] synthesizing module 'core' [/u5/krenehan/vivado/pdp_test_pr
 	Parameter NOTIFY bound to: 9'b100000000 
 INFO: [Synth 8-155] case statement is not full and has no default [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/core.v:75]
 INFO: [Synth 8-6155] done synthesizing module 'core' (2#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/core.v:23]
+INFO: [Synth 8-6157] synthesizing module 'debouncer' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/debouncer.v:23]
+	Parameter COUNTER_WIDTH bound to: 10 - type: integer 
+	Parameter COUNTER_MAX bound to: 1023 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'FDRE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'FDRE' (3#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (4#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/debouncer.v:23]
 INFO: [Synth 8-6157] synthesizing module 'sync_counter' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/sync_counter.v:23]
 	Parameter WIDTH bound to: 27 - type: integer 
 INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/sync_counter.v:27]
-INFO: [Synth 8-6155] done synthesizing module 'sync_counter' (3#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/sync_counter.v:23]
-WARNING: [Synth 8-689] width (27) of port connection 'avalanche_count' does not match port width (28) of module 'sync_counter' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:226]
-INFO: [Synth 8-6157] synthesizing module 'fifo_generator_fpgatopc' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-32370-linrack6.ee.columbia.edu/realtime/fifo_generator_fpgatopc_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_fpgatopc' (4#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-32370-linrack6.ee.columbia.edu/realtime/fifo_generator_fpgatopc_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'fifo_generator_pctofpga' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-32370-linrack6.ee.columbia.edu/realtime/fifo_generator_pctofpga_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_pctofpga' (5#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-32370-linrack6.ee.columbia.edu/realtime/fifo_generator_pctofpga_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'sync_counter' (5#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/sync_counter.v:23]
+WARNING: [Synth 8-689] width (27) of port connection 'avalanche_count' does not match port width (28) of module 'sync_counter' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:239]
+INFO: [Synth 8-6157] synthesizing module 'fifo_generator_fpgatopc' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-12378-linrack6.ee.columbia.edu/realtime/fifo_generator_fpgatopc_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_fpgatopc' (6#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-12378-linrack6.ee.columbia.edu/realtime/fifo_generator_fpgatopc_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fifo_generator_pctofpga' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-12378-linrack6.ee.columbia.edu/realtime/fifo_generator_pctofpga_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_pctofpga' (7#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/.Xil/Vivado-12378-linrack6.ee.columbia.edu/realtime/fifo_generator_pctofpga_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'encoder_fast_32b' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v:23]
 	Parameter COUNTER_WIDTH bound to: 27 - type: integer 
 	Parameter IDLE bound to: 6'b000001 
@@ -59,7 +69,7 @@ INFO: [Synth 8-6157] synthesizing module 'encoder_fast_32b' [/u5/krenehan/vivado
 	Parameter DONE bound to: 6'b010000 
 	Parameter NOT_ACKNOWLEDGED bound to: 6'b100000 
 INFO: [Synth 8-155] case statement is not full and has no default [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v:87]
-INFO: [Synth 8-6155] done synthesizing module 'encoder_fast_32b' (6#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_fast_32b' (8#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v:23]
 INFO: [Synth 8-6157] synthesizing module 'decoder_fast_32b' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v:23]
 	Parameter IDLE bound to: 6'b000001 
 	Parameter FIRST_READ_ATTEMPTED bound to: 6'b000010 
@@ -68,7 +78,7 @@ INFO: [Synth 8-6157] synthesizing module 'decoder_fast_32b' [/u5/krenehan/vivado
 	Parameter DONE bound to: 6'b010000 
 	Parameter WAIT_FOR_ACK bound to: 6'b100000 
 INFO: [Synth 8-155] case statement is not full and has no default [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v:74]
-INFO: [Synth 8-6155] done synthesizing module 'decoder_fast_32b' (7#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'decoder_fast_32b' (9#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v:23]
 INFO: [Synth 8-6157] synthesizing module 'relay_controller' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:23]
 	Parameter IDLE bound to: 7'b0000001 
 	Parameter CONFIG bound to: 7'b0000010 
@@ -78,7 +88,7 @@ INFO: [Synth 8-6157] synthesizing module 'relay_controller' [/u5/krenehan/vivado
 	Parameter HOLD bound to: 7'b0100000 
 	Parameter CLEAR bound to: 7'b1000000 
 INFO: [Synth 8-6157] synthesizing module 'relay_clock_generator_no_reset' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'relay_clock_generator_no_reset' (8#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'relay_clock_generator_no_reset' (10#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v:23]
 INFO: [Synth 8-6157] synthesizing module 'relay_shift_register' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:23]
 	Parameter IDLE bound to: 5'b00001 
 	Parameter WAIT_FOR_DATA bound to: 5'b00010 
@@ -90,28 +100,22 @@ WARNING: [Synth 8-567] referenced signal 'clk_latch' should be on the sensitivit
 WARNING: [Synth 8-567] referenced signal 'clock_pin' should be on the sensitivity list [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:101]
 WARNING: [Synth 8-567] referenced signal 'shift_out' should be on the sensitivity list [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:101]
 INFO: [Synth 8-155] case statement is not full and has no default [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:118]
-INFO: [Synth 8-6155] done synthesizing module 'relay_shift_register' (9#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'relay_shift_register' (11#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:139]
-INFO: [Synth 8-6155] done synthesizing module 'relay_controller' (10#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'relay_controller' (12#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:23]
 INFO: [Synth 8-6157] synthesizing module 'okHost' [/u5/krenehan/vivado/FrontPanelHDL/XEM7360-K160T/Vivado/okLibrary.v:10]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:23616]
 	Parameter DRIVE bound to: 12 - type: integer 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (11#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:23616]
-INFO: [Synth 8-6157] synthesizing module 'FDRE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
-	Parameter INIT bound to: 1'b0 
-	Parameter IS_C_INVERTED bound to: 1'b0 
-	Parameter IS_D_INVERTED bound to: 1'b0 
-	Parameter IS_R_INVERTED bound to: 1'b0 
-INFO: [Synth 8-6155] done synthesizing module 'FDRE' (12#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (13#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:23616]
 INFO: [Synth 8-6157] synthesizing module 'IBUFG' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:20853]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IBUFG' (13#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:20853]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFG' (14#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:20853]
 INFO: [Synth 8-6157] synthesizing module 'MMCME2_BASE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26838]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
 	Parameter CLKFBOUT_MULT_F bound to: 10.000000 - type: float 
@@ -142,187 +146,185 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME2_BASE' [/tools/cad/xilinx/Vivado
 	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
 	Parameter REF_JITTER1 bound to: 0.000000 - type: float 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'MMCME2_BASE' (14#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26838]
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_BASE' (15#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26838]
 WARNING: [Synth 8-350] instance 'mmcm0' of module 'MMCME2_BASE' requires 18 connections, but only 6 given [/u5/krenehan/vivado/FrontPanelHDL/XEM7360-K160T/Vivado/okLibrary.v:53]
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (15#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (16#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
 INFO: [Synth 8-6157] synthesizing module 'GND' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4950]
-INFO: [Synth 8-6155] done synthesizing module 'GND' (16#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4950]
+INFO: [Synth 8-6155] done synthesizing module 'GND' (17#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4950]
 INFO: [Synth 8-6157] synthesizing module 'VCC' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:53065]
-INFO: [Synth 8-6155] done synthesizing module 'VCC' (17#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:53065]
+INFO: [Synth 8-6155] done synthesizing module 'VCC' (18#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:53065]
 INFO: [Synth 8-6157] synthesizing module 'LUT5' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5' (18#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5' (19#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT6' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6' (19#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6' (20#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized0' (19#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized0' (20#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT3' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
-INFO: [Synth 8-6155] done synthesizing module 'LUT3' (20#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
+INFO: [Synth 8-6155] done synthesizing module 'LUT3' (21#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
 INFO: [Synth 8-6157] synthesizing module 'LUT2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
-INFO: [Synth 8-6155] done synthesizing module 'LUT2' (21#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
+INFO: [Synth 8-6155] done synthesizing module 'LUT2' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized1' (21#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized1' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized0' (21#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized0' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized1' (21#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized1' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT4' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
-INFO: [Synth 8-6155] done synthesizing module 'LUT4' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
+INFO: [Synth 8-6155] done synthesizing module 'LUT4' (23#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
 INFO: [Synth 8-6157] synthesizing module 'LUT3__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
-INFO: [Synth 8-6155] done synthesizing module 'LUT3__parameterized0' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
+INFO: [Synth 8-6155] done synthesizing module 'LUT3__parameterized0' (23#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized2' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized2' (23#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized3' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized3' (22#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized3' (23#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
-INFO: [Synth 8-6155] done synthesizing module 'LUT1' (23#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
+INFO: [Synth 8-6155] done synthesizing module 'LUT1' (24#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
 INFO: [Synth 8-6157] synthesizing module 'FDSE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4107]
-INFO: [Synth 8-6155] done synthesizing module 'FDSE' (24#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4107]
+INFO: [Synth 8-6155] done synthesizing module 'FDSE' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:4107]
 INFO: [Synth 8-6157] synthesizing module 'CARRY4' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:968]
-INFO: [Synth 8-6155] done synthesizing module 'CARRY4' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:968]
+INFO: [Synth 8-6155] done synthesizing module 'CARRY4' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:968]
 INFO: [Synth 8-6157] synthesizing module 'fifo_generator_v13_2_0' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15468]
 INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15981]
 INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15982]
 INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15983]
 INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15984]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized2' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized2' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT2__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
-INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized0' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
+INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized0' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
 INFO: [Synth 8-6157] synthesizing module 'LUT2__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
-INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized1' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
+INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized1' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26451]
 INFO: [Synth 8-6157] synthesizing module 'LUT3__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
-INFO: [Synth 8-6155] done synthesizing module 'LUT3__parameterized1' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
+INFO: [Synth 8-6155] done synthesizing module 'LUT3__parameterized1' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26489]
 INFO: [Synth 8-6157] synthesizing module 'LUT4__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
-INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized0' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
+INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized0' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized3' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized3' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized3' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized4' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized4' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized4' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT1__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
-INFO: [Synth 8-6155] done synthesizing module 'LUT1__parameterized0' (25#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
+INFO: [Synth 8-6155] done synthesizing module 'LUT1__parameterized0' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26417]
 INFO: [Synth 8-6157] synthesizing module 'FDPE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
-INFO: [Synth 8-6155] done synthesizing module 'FDPE' (26#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
+INFO: [Synth 8-6155] done synthesizing module 'FDPE' (27#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
 INFO: [Synth 8-6157] synthesizing module 'FDCE' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
-INFO: [Synth 8-6155] done synthesizing module 'FDCE' (27#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
+INFO: [Synth 8-6155] done synthesizing module 'FDCE' (28#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
 INFO: [Synth 8-6157] synthesizing module 'RAMB18E1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:49849]
-INFO: [Synth 8-6155] done synthesizing module 'RAMB18E1' (28#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:49849]
+INFO: [Synth 8-6155] done synthesizing module 'RAMB18E1' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:49849]
 INFO: [Synth 8-6157] synthesizing module 'FDRE__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
-INFO: [Synth 8-6155] done synthesizing module 'FDRE__parameterized0' (28#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
+INFO: [Synth 8-6155] done synthesizing module 'FDRE__parameterized0' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3971]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:17096]
 INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15360]
 INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15370]
 INFO: [Synth 8-6157] synthesizing module 'FDPE__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
-INFO: [Synth 8-6155] done synthesizing module 'FDPE__parameterized0' (28#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (29#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15360]
+INFO: [Synth 8-6155] done synthesizing module 'FDPE__parameterized0' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (30#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15360]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized4' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized4' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized4' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized5' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized5' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized5' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized6' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized6' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized6' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT4__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
-INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized1' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
+INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized1' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
 INFO: [Synth 8-6157] synthesizing module 'LUT4__parameterized2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
-INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized2' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
+INFO: [Synth 8-6155] done synthesizing module 'LUT4__parameterized2' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26531]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized7' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized7' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized7' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized8' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized8' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized8' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized9' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized9' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized9' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized10' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized10' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized10' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized11' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized11' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized11' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT5__parameterized5' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized5' (29#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_v13_2_0' (30#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15468]
+INFO: [Synth 8-6155] done synthesizing module 'LUT5__parameterized5' (30#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26577]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_v13_2_0' (31#1) [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v:15468]
 INFO: [Synth 8-6157] synthesizing module 'DNA_PORT' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3039]
-INFO: [Synth 8-6155] done synthesizing module 'DNA_PORT' (32#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3039]
+INFO: [Synth 8-6155] done synthesizing module 'DNA_PORT' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3039]
 INFO: [Synth 8-6157] synthesizing module 'FDCE__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
-INFO: [Synth 8-6155] done synthesizing module 'FDCE__parameterized0' (32#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
+INFO: [Synth 8-6155] done synthesizing module 'FDCE__parameterized0' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3755]
 INFO: [Synth 8-6157] synthesizing module 'FDPE__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
-INFO: [Synth 8-6155] done synthesizing module 'FDPE__parameterized1' (32#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
+INFO: [Synth 8-6155] done synthesizing module 'FDPE__parameterized1' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:3911]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized12' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized12' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized12' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized0' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized0' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized0' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized13' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized13' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized13' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized14' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized14' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized14' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized1' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized1' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized1' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized2' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized2' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized2' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized3' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized3' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized3' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized15' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized15' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized15' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized4' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized4' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized4' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized16' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized16' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized16' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized5' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized5' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized5' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized17' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized17' (33#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized17' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'RAM128X1S' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:44874]
-INFO: [Synth 8-6155] done synthesizing module 'RAM128X1S' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:44874]
+INFO: [Synth 8-6155] done synthesizing module 'RAM128X1S' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:44874]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized6' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized6' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized6' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized18' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized18' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized18' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized7' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized7' (34#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized7' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'RAM32M' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:45121]
-INFO: [Synth 8-6155] done synthesizing module 'RAM32M' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:45121]
+INFO: [Synth 8-6155] done synthesizing module 'RAM32M' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:45121]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized8' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized8' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized8' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized9' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized9' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized9' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized10' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized10' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized10' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized11' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized11' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized11' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized19' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized19' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized19' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized20' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized20' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized20' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized12' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized12' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized12' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized13' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized13' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized13' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized21' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized21' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized21' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized14' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized14' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized14' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized15' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized15' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized15' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized16' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized16' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized16' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized22' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized22' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized22' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized17' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized17' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized17' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized18' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized18' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized18' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized19' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized19' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized19' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized20' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized20' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized20' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized23' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized23' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized24' [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
 INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized24' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized21' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
-INFO: [Synth 8-6155] done synthesizing module 'RAMB18E1__parameterized0' (35#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:49849]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized23' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized24' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26627]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized21' (36#1) [/tools/cad/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26648]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-350] instance 'okHI' of module 'okHost' requires 9 connections, but only 7 given [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:309]
+WARNING: [Synth 8-350] instance 'okHI' of module 'okHost' requires 9 connections, but only 7 given [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:322]
 	Parameter N bound to: 3 - type: integer 
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter DIFF_TERM bound to: FALSE - type: string 
@@ -433,7 +435,7 @@ WARNING: [Synth 8-3331] design okWireOut has unconnected port okHE[3]
 WARNING: [Synth 8-3331] design okWireOut has unconnected port okHE[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1498.906 ; gain = 157.625 ; free physical = 190526 ; free virtual = 252123
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1497.984 ; gain = 129.625 ; free physical = 191628 ; free virtual = 253139
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -442,16 +444,16 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin okWireOut:ep_datain[31] to constant 0 [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:345]
-WARNING: [Synth 8-3295] tying undriven pin okWireOut:ep_datain[30] to constant 0 [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:345]
+WARNING: [Synth 8-3295] tying undriven pin okWireOut:ep_datain[31] to constant 0 [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:358]
+WARNING: [Synth 8-3295] tying undriven pin okWireOut:ep_datain[30] to constant 0 [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v:358]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 1498.906 ; gain = 157.625 ; free physical = 190534 ; free virtual = 252131
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1497.984 ; gain = 129.625 ; free physical = 191638 ; free virtual = 253148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 1498.906 ; gain = 157.625 ; free physical = 190534 ; free virtual = 252131
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1497.984 ; gain = 129.625 ; free physical = 191638 ; free virtual = 253148
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 148 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -472,15 +474,15 @@ INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as o
 Finished Parsing XDC File [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/constrs_1/imports/Downloads/xem7360.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1824.539 ; gain = 0.000 ; free physical = 190242 ; free virtual = 251839
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1823.633 ; gain = 0.000 ; free physical = 191329 ; free virtual = 252838
 Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Finished Sourcing Tcl File [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/tools/cad/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1824.539 ; gain = 0.000 ; free physical = 190242 ; free virtual = 251839
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1823.633 ; gain = 0.000 ; free physical = 191329 ; free virtual = 252838
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1824.539 ; gain = 0.000 ; free physical = 190243 ; free virtual = 251840
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1823.633 ; gain = 0.000 ; free physical = 191329 ; free virtual = 252839
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 98 instances were transformed.
   IBUFG => IBUF: 1 instances
@@ -491,17 +493,17 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 8 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1825.539 ; gain = 0.000 ; free physical = 190243 ; free virtual = 251840
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1825.539 ; gain = 1.000 ; free physical = 190243 ; free virtual = 251840
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1824.633 ; gain = 0.000 ; free physical = 191329 ; free virtual = 252839
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1824.633 ; gain = 1.000 ; free physical = 191329 ; free virtual = 252839
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:30 . Memory (MB): peak = 1825.539 ; gain = 484.258 ; free physical = 190337 ; free virtual = 251934
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1824.633 ; gain = 456.273 ; free physical = 191439 ; free virtual = 252949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k160tffg676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:30 . Memory (MB): peak = 1825.539 ; gain = 484.258 ; free physical = 190337 ; free virtual = 251934
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1824.633 ; gain = 456.273 ; free physical = 191439 ; free virtual = 252949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -510,7 +512,7 @@ Applied set_property DONT_TOUCH = true for frontpanel_fifo_32b_fpgatopc. (constr
 Applied set_property DONT_TOUCH = true for frontpanel_fifo_32b_pctofpga. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for okHI/core0/core0/\a0/cb0 /U0/\inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:30 . Memory (MB): peak = 1825.539 ; gain = 484.258 ; free physical = 190337 ; free virtual = 251934
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:28 . Memory (MB): peak = 1824.633 ; gain = 456.273 ; free physical = 191439 ; free virtual = 252949
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'core'
 INFO: [Synth 8-5546] ROM "config_accepted" won't be mapped to RAM because it is too sparse
@@ -525,6 +527,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "counter_full" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'encoder_fast_32b'
 INFO: [Synth 8-5544] ROM "wr_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "wr_en" won't be mapped to RAM because it is too sparse
@@ -650,7 +653,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'relay_set_reg' [/u5/kreneha
 WARNING: [Synth 8-327] inferring latch for variable 'holding_reg' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:147]
 WARNING: [Synth 8-327] inferring latch for variable 'shift_start_reg' [/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v:75]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190329 ; free virtual = 251927
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191430 ; free virtual = 252941
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -683,6 +686,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "debouncer/counter_full" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3917] design top has port led_activelow[3] driven by constant 1
 WARNING: [Synth 8-3917] design top has port led_activelow[2] driven by constant 1
 WARNING: [Synth 8-3917] design top has port led_activelow[1] driven by constant 1
@@ -793,7 +797,7 @@ WARNING: [Synth 8-3332] Sequential element (ep_datahold_reg[13]) is unused and w
 WARNING: [Synth 8-3332] Sequential element (ep_datahold_reg[14]) is unused and will be removed from module okWireIn.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:33 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190317 ; free virtual = 251918
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191418 ; free virtual = 252932
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -807,13 +811,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst/src_arst' to pin 'okHI/core0/core0/a0/l62a5479e7989ce7f4d5507c695cc69cf_reg/Q'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:40 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190187 ; free virtual = 251788
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191299 ; free virtual = 252813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:40 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190183 ; free virtual = 251784
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:38 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191295 ; free virtual = 252809
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -825,7 +829,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:41 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190183 ; free virtual = 251784
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:38 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -849,7 +853,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -862,7 +866,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -874,25 +878,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -912,15 +916,15 @@ Report Cell Usage:
 +------+------------------------+------+
 |1     |fifo_generator_fpgatopc |     1|
 |2     |fifo_generator_pctofpga |     1|
-|3     |BUFG                    |     6|
+|3     |BUFG                    |     5|
 |4     |CARRY4                  |    57|
 |5     |DNA_PORT                |     1|
-|6     |LUT1                    |    63|
-|7     |LUT2                    |    96|
-|8     |LUT3                    |    78|
-|9     |LUT4                    |   249|
-|10    |LUT5                    |   143|
-|11    |LUT6                    |   422|
+|6     |LUT1                    |    64|
+|7     |LUT2                    |    98|
+|8     |LUT3                    |    80|
+|9     |LUT4                    |   252|
+|10    |LUT5                    |   147|
+|11    |LUT6                    |   424|
 |12    |LUT6_2                  |    50|
 |13    |MMCME2_BASE             |     1|
 |14    |RAM128X1S               |     8|
@@ -930,7 +934,7 @@ Report Cell Usage:
 |18    |RAMB36E1                |     1|
 |19    |FDCE                    |   187|
 |20    |FDPE                    |    37|
-|21    |FDRE                    |   794|
+|21    |FDRE                    |   808|
 |22    |FDSE                    |    55|
 |23    |LD                      |    31|
 |24    |LDC                     |     1|
@@ -942,17 +946,17 @@ Report Cell Usage:
 |30    |OBUF                    |    12|
 +------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190192 ; free virtual = 251794
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191294 ; free virtual = 252808
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 527 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 1826.539 ; gain = 158.625 ; free physical = 190248 ; free virtual = 251849
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1826.539 ; gain = 485.258 ; free physical = 190259 ; free virtual = 251860
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 1825.633 ; gain = 130.625 ; free physical = 191349 ; free virtual = 252863
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191360 ; free virtual = 252874
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 191 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1826.539 ; gain = 0.000 ; free physical = 190190 ; free virtual = 251791
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1825.633 ; gain = 0.000 ; free physical = 191290 ; free virtual = 252804
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 130 instances were transformed.
   IBUFG => IBUF: 1 instances
@@ -966,12 +970,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-290 Infos, 244 Warnings, 0 Critical Warnings and 0 Errors encountered.
+292 Infos, 244 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 1826.539 ; gain = 496.711 ; free physical = 190248 ; free virtual = 251850
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1826.539 ; gain = 0.000 ; free physical = 190248 ; free virtual = 251850
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:42 . Memory (MB): peak = 1825.633 ; gain = 457.273 ; free physical = 191348 ; free virtual = 252862
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1825.633 ; gain = 0.000 ; free physical = 191348 ; free virtual = 252862
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jul 10 20:19:37 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Jul 11 04:32:52 2019...

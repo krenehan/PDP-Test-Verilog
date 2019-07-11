@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date             : Wed Jul 10 20:26:30 2019
+| Date             : Thu Jul 11 04:39:12 2019
 | Host             : linrack6.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.326        |
+| Total On-Chip Power (W)  | 0.327        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.210        |
+| Dynamic (W)              | 0.211        |
 | Device Static (W)        | 0.116        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 84.4         |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.025 |       28 |       --- |             --- |
-| Slice Logic              |     0.011 |     2679 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     1060 |    101400 |            1.05 |
+| Clocks                   |     0.026 |       28 |       --- |             --- |
+| Slice Logic              |     0.011 |     2707 |       --- |             --- |
+|   LUT as Logic           |     0.009 |     1076 |    101400 |            1.06 |
 |   LUT as Distributed RAM |    <0.001 |       84 |     35000 |            0.24 |
-|   Register               |    <0.001 |     1202 |    202800 |            0.59 |
+|   Register               |    <0.001 |     1216 |    202800 |            0.60 |
 |   CARRY4                 |    <0.001 |       57 |     25350 |            0.22 |
-|   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes            |    <0.001 |        8 |    101400 |           <0.01 |
-|   Others                 |     0.000 |       75 |       --- |             --- |
-| Signals                  |     0.008 |     2217 |       --- |             --- |
+|   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
+|   Others                 |     0.000 |       76 |       --- |             --- |
+| Signals                  |     0.008 |     2228 |       --- |             --- |
 | Block RAM                |     0.002 |        2 |       325 |            0.62 |
 | MMCM                     |     0.106 |        1 |         8 |           12.50 |
 | I/O                      |     0.059 |       65 |       400 |           16.25 |
 | Static Power             |     0.116 |          |           |                 |
-| Total                    |     0.326 |          |           |                 |
+| Total                    |     0.327 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -130,35 +130,35 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+---------------------------+---------------------------------------------+-----------------+
-| Clock                     | Domain                                      | Constraint (ns) |
-+---------------------------+---------------------------------------------+-----------------+
-| decoder_fast_32b/state[0] | decoder_fast_32b/state[0]                   |             5.0 |
-| decoder_fast_32b/state[1] | decoder_fast_32b/state[1]                   |             5.0 |
-| decoder_fast_32b/state[2] | decoder_fast_32b/state[2]                   |             5.0 |
-| decoder_fast_32b/state[3] | decoder_fast_32b/state[3]                   |             5.0 |
-| decoder_fast_32b/state[4] | decoder_fast_32b/state[4]                   |             5.0 |
-| decoder_fast_32b/state[5] | decoder_fast_32b/state[5]                   |             5.0 |
-| encoder_fast_32b/state[0] | encoder_fast_32b/state[0]                   |             5.0 |
-| encoder_fast_32b/state[1] | encoder_fast_32b/state[1]                   |             5.0 |
-| encoder_fast_32b/state[2] | encoder_fast_32b/state[2]                   |             5.0 |
-| encoder_fast_32b/state[3] | encoder_fast_32b/state[3]                   |             5.0 |
-| encoder_fast_32b/state[4] | encoder_fast_32b/state[4]                   |             5.0 |
-| encoder_fast_32b/state[5] | encoder_fast_32b/state[5]                   |             5.0 |
-| mmcm0_clk0                | okHI/mmcm0_clk0                             |             9.9 |
-| mmcm0_clkfb               | okHI/mmcm0_clkfb                            |             9.9 |
-| okUH0                     | okUH[0]                                     |             9.9 |
-| relay_controller/state[0] | relay_controller/state[0]                   |             5.0 |
-| relay_controller/state[1] | relay_controller/state[1]                   |             5.0 |
-| relay_controller/state[2] | relay_controller/state_reg_n_0_[2]          |             5.0 |
-| relay_controller/state[3] | relay_controller/state_reg_n_0_[3]          |             5.0 |
-| relay_controller/state[4] | relay_controller/state_reg_n_0_[4]          |             5.0 |
-| relay_controller/state[5] | relay_controller/state[5]                   |             5.0 |
-| relay_controller/state[6] | relay_controller/state[6]                   |             5.0 |
-| slow_clock                | relay_controller/relay_clock_generator/CLK  |             5.0 |
-| slower_clock              | relay_controller/relay_clock_generator/S[0] |             5.0 |
-| sys_clk                   | sys_clkp                                    |             5.0 |
-+---------------------------+---------------------------------------------+-----------------+
++---------------------------+----------------------------------------------------------+-----------------+
+| Clock                     | Domain                                                   | Constraint (ns) |
++---------------------------+----------------------------------------------------------+-----------------+
+| decoder_fast_32b/state[0] | decoder_fast_32b/state[0]                                |             5.0 |
+| decoder_fast_32b/state[1] | decoder_fast_32b/state[1]                                |             5.0 |
+| decoder_fast_32b/state[2] | decoder_fast_32b/state[2]                                |             5.0 |
+| decoder_fast_32b/state[3] | decoder_fast_32b/state[3]                                |             5.0 |
+| decoder_fast_32b/state[4] | decoder_fast_32b/state[4]                                |             5.0 |
+| decoder_fast_32b/state[5] | decoder_fast_32b/state[5]                                |             5.0 |
+| encoder_fast_32b/state[0] | encoder_fast_32b/state[0]                                |             5.0 |
+| encoder_fast_32b/state[1] | encoder_fast_32b/state[1]                                |             5.0 |
+| encoder_fast_32b/state[2] | encoder_fast_32b/state[2]                                |             5.0 |
+| encoder_fast_32b/state[3] | encoder_fast_32b/state[3]                                |             5.0 |
+| encoder_fast_32b/state[4] | encoder_fast_32b/state[4]                                |             5.0 |
+| encoder_fast_32b/state[5] | encoder_fast_32b/state[5]                                |             5.0 |
+| mmcm0_clk0                | okHI/mmcm0_clk0                                          |             9.9 |
+| mmcm0_clkfb               | okHI/mmcm0_clkfb                                         |             9.9 |
+| okUH0                     | okUH[0]                                                  |             9.9 |
+| relay_controller/state[0] | relay_controller/state[0]                                |             5.0 |
+| relay_controller/state[1] | relay_controller/state[1]                                |             5.0 |
+| relay_controller/state[2] | relay_controller/state_reg_n_0_[2]                       |             5.0 |
+| relay_controller/state[3] | relay_controller/state_reg_n_0_[3]                       |             5.0 |
+| relay_controller/state[4] | relay_controller/state_reg_n_0_[4]                       |             5.0 |
+| relay_controller/state[5] | relay_controller/state[5]                                |             5.0 |
+| relay_controller/state[6] | relay_controller/state[6]                                |             5.0 |
+| slow_clock                | relay_controller/relay_clock_generator/counter_reg[13]_0 |             5.0 |
+| slower_clock              | relay_controller/relay_clock_generator/S[0]              |             5.0 |
+| sys_clk                   | sys_clkp                                                 |             5.0 |
++---------------------------+----------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -170,15 +170,15 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| top                            |     0.210 |
+| top                            |     0.211 |
 |   decoder_fast_32b             |     0.006 |
 |   encoder_fast_32b             |     0.007 |
 |   frontpanel_fifo_32b_fpgatopc |     0.003 |
 |     U0                         |     0.003 |
 |       inst_fifo_gen            |     0.003 |
-|   frontpanel_fifo_32b_pctofpga |     0.001 |
-|     U0                         |     0.001 |
-|       inst_fifo_gen            |     0.001 |
+|   frontpanel_fifo_32b_pctofpga |     0.002 |
+|     U0                         |     0.002 |
+|       inst_fifo_gen            |     0.002 |
 |   okHI                         |     0.131 |
 |     core0                      |     0.014 |
 |       core0                    |     0.014 |

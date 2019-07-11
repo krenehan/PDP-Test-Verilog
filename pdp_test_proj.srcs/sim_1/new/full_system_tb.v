@@ -199,6 +199,9 @@ module full_system_tb(
         // Run for 15 pulses
         repeat (COUNTS1) counter_pulse();
         
+        // Pulse short and make sure counts don't come through
+        repeat (20) counter_short_pulse();
+        
         // Stop the measurement
         @(posedge okClk);
         stop_measurement <= 1;
@@ -225,26 +228,31 @@ module full_system_tb(
         end else begin
             $display("Incorrect SPAD number %d", spad_number[4:0]);
             $display("SPAD number should be %d", SPAD1);
+            $finish;
         end
         
         if (pctofpga_fifo_empty) begin
             $display("FIFO emptied correctly");
         end else begin
             $display("FIFO not emptied correctly");
+            $finish;
         end
         
         if (first_result[31:27] == SPAD1) begin
             $display("Test 1 - SPAD number correctly output from FIFO");
         end else begin
             $display("Test 1 - SPAD number incorrectly output from FIFO");
+            $finish;
         end
         
         if (first_result[COUNTER_WIDTH-1:0] == COUNTS1) begin
             $display("Test 1 - Count value correctly output from FIFO");
         end else begin
             $display("Test 1 - Count value incorrectly output from FIFO");
+            $finish;
         end
-                
+        
+        $display("Success");        
         $finish;
         
 //        ///////////////////////////////////////// DO IT AGAIN
@@ -313,6 +321,17 @@ module full_system_tb(
         end
     endtask
     
+    task counter_short_pulse;
+        begin
+            anodep <= 1;
+            anoden <= 0;
+            #250;
+            anodep <= 0;
+            anoden <= 1;
+            #250;
+        end
+    endtask
+    
     
      // Instantiate core
     core core(
@@ -339,11 +358,32 @@ module full_system_tb(
         .state(core_state[8:0])
     );
     
+    // Debouncer for anode input, if deleting, just comment this out and change input to counter from "anode_debounced" to "anode"
+    // Remove counter_short_pulse and function call
+    wire anode_debounced;
+    wire anode_raw;
+    assign anode_raw = anode;
+//    wire [9:0] count;
+//    wire debounce_counter_enable;
+//    wire counter_full;
+    debouncer #(.COUNTER_WIDTH(10)) debouncer (
+//        // Optional
+//        .count(count),
+//        .counter_enable(debounce_counter_enable),
+//        .counter_full(counter_full),
+        
+        .clk(sys_clk),
+        .reset(reset),
+        .enable(counter_enable),
+        .in(anode_raw),
+        .out(anode_debounced)
+    );
+    
     // Instantiate counter
     sync_counter #(.WIDTH(COUNTER_WIDTH)) sync_counter(
         .clear(counter_clear),
         .enable(counter_enable),
-        .spad_signal(anode), 
+        .spad_signal(anode_debounced), 
         .avalanche_count(avalanche_count)
     );
 

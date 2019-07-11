@@ -67,6 +67,7 @@ module top(
     wire sys_clk;
     IBUFGDS osc_clk(.O(sys_clk), .I(sys_clkp), .IB(sys_clkn));
     
+    
     // Wires for counter
     localparam COUNTER_WIDTH = 27;
     wire counter_enable;
@@ -218,11 +219,23 @@ module top(
         .state(core_state[8:0])
     );
     
+    // Debouncer for anode input, if deleting, just comment this out and change input to counter from "anode_debounced" to "anode"
+    wire anode_debounced;
+    wire anode_raw;
+    assign anode_raw = anode;
+    debouncer #(.COUNTER_WIDTH(10)) debouncer (
+        .clk(sys_clk),
+        .reset(reset),
+        .enable(counter_enable),
+        .in(anode_raw),
+        .out(anode_debounced)
+    );
+    
     // Instantiate counter
     sync_counter #(.WIDTH(COUNTER_WIDTH)) sync_counter(
         .clear(counter_clear),
         .enable(counter_enable),
-        .spad_signal(anode), 
+        .spad_signal(anode_debounced), 
         .avalanche_count(avalanche_count)
     );
 

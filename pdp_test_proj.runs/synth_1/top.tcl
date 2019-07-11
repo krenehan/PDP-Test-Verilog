@@ -32,6 +32,7 @@ set_property ip_output_repo /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.cach
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/core.v
+  /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/debouncer.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v

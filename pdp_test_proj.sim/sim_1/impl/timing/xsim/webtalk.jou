@@ -2,11 +2,11 @@
 # Webtalk v2018.3.1 (64-bit)
 # SW Build 2489853 on Tue Mar 26 04:18:30 MDT 2019
 # IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
-# Start of session at: Wed Jul 10 20:26:07 2019
-# Process ID: 23957
+# Start of session at: Thu Jul 11 04:02:43 2019
+# Process ID: 6679
 # Current directory: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim
-# Command line: wbtcv -mode batch -source /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/xsim.dir/full_system_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv -mode batch -source /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/xsim.dir/debouncer_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/webtalk.log
 # Journal file: /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/xsim.dir/full_system_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
+source /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.sim/sim_1/impl/timing/xsim/xsim.dir/debouncer_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
