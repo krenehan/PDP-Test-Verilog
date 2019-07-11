@@ -19,6 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+//`include "okHostCalls.v"
 
 module full_system_tb(
 
@@ -26,12 +27,16 @@ module full_system_tb(
     
     // Internal tb registers
     reg sys_clk;
-    reg okUH;
+    reg okClk;
     reg reset;
-    reg [31:0] anode;
+    reg anoden;
+    reg anodep;
     reg tb_wr_en;
     reg tb_rd_en;
     reg [31:0] tb_packet;
+    
+    // Results registers
+    reg [31:0] first_result;
     
     // IO to relays
     wire latch_pin;
@@ -49,65 +54,83 @@ module full_system_tb(
     wire config_accepted;
     wire results_written;
     wire ready_to_measure;
-    wire [3:0] core_state;
-    
-    // Decoder core connections
-    wire decoder_read;
-    wire packet_read;
-    
-    // Decoder FIFO connection
-    //wire decoder_rd_en;
-    
-    // Encoder core connections
-    wire encoder_write;
-    wire packet_written;
-    
-    // Encoder FIFO connections
-    //wire encoder_wr_en;
-    //wire [31:0] encoder_packet;
-    
-    // Relay controller core connections
-    wire set_relay;
-    wire clear_relay;
-    wire relay_set;
-    wire holding;
-    
-    // Counter core connections
+    wire [8:0] core_state;
+
+     // Wires for counter
+    localparam COUNTER_WIDTH = 27;
     wire counter_enable;
+    wire [COUNTER_WIDTH-1:0] avalanche_count;
+    wire anode;
     wire counter_clear;
+
+    // Wires for led
+    wire [3:0] led;
+    assign led[0] = anode;
+    assign led[3:1] = 2'b00;
     
-    // Mux to counter connection
-    wire spad_signal;
     
-    // Counter to encoder connection
-    wire [15:0] avalanche_count;
-    
-    // SPAD address bus
-    wire [4:0] spad_number;
-    
-    // FIFO connection
-    wire pctofpga_fifo_wr_en;
-    wire pctofpga_fifo_rd_en;
-    wire [31:0] pctofpga_fifo_din;
-    wire [31:0] pctofpga_fifo_dout;
-    wire pctofpga_fifo_wr_ack;
-    wire pctofpga_fifo_full;
-    wire pctofpga_fifo_valid;
-    wire pctofpga_fifo_empty;
-    
-    // FIFO connection
+    // Wires for fpga to pc FIFO
+    wire fpgatopc_fifo_full;
+    wire fpgatopc_fifo_empty;
     wire fpgatopc_fifo_wr_en;
     wire fpgatopc_fifo_rd_en;
     wire [31:0] fpgatopc_fifo_din;
     wire [31:0] fpgatopc_fifo_dout;
-    wire fpgatopc_fifo_wr_ack;
-    wire fpgatopc_fifo_full;
     wire fpgatopc_fifo_valid;
-    wire fpgatopc_fifo_empty;
+    wire fpgatopc_fifo_wr_ack;
+    
+    // Wires for pc to fpga FIFO
+    wire pctofpga_fifo_full;
+    wire pctofpga_fifo_empty;
+    wire pctofpga_fifo_wr_en;
+    wire pctofpga_fifo_rd_en;
+    wire [31:0] pctofpga_fifo_din;
+    wire [31:0] pctofpga_fifo_dout;
+    wire pctofpga_fifo_valid;
+    wire pctofpga_fifo_wr_ack;
+    
+    // Wires for encoder
+    wire encoder_write;
+    wire [31:0] encoder_packet;
+    wire encoder_wr_en;
+    wire packet_written;
+    
+    // Wires for decoder
+    wire decoder_read;
+    wire decoder_rd_en;
+    wire packet_read;
+    
+    // Wires for relay controller
+    wire set_relay;
+    wire clear_relay;
+    wire relay_set;
+    wire holding;
+    wire [4:0] spad_number;
+
+    // Wires out to frontpanel
+    wire [31:0] wires_out;
+    
+    // FrontPanel pipe
+    wire [31:0] config_pipe_dout;
+    wire config_pipe_wr_en;
+    wire [31:0] results_pipe_din;
+    wire results_pipe_rd_en;
+    
+    // Wire signals
+    assign wires_out[0] = config_accepted;
+    assign wires_out[1] = ready_to_measure;
+    assign wires_out[2] = measurement_running;
+    assign wires_out[3] = results_written;
+    assign wires_out[4] = pctofpga_fifo_empty;
+    assign wires_out[5] = fpgatopc_fifo_empty;
+    assign wires_out[10:6] = spad_number[4:0];
+    assign wires_out[19:11] = core_state[8:0];
+
     
     localparam  SPAD1 = 7,
-                COUNTS1 = 5,
-                SPAD2 = 24;
+                COUNTS1 = 50,
+                SPAD2 = 24,
+                COUNTS2 = 1000;
 
 
     // Clock
@@ -117,13 +140,8 @@ module full_system_tb(
     
     // Frontpanel clock
     always begin 
-        #4.96 okUH = ~okUH;
+        #4.96 okClk = ~okClk;
     end
-    
-    // Buses
-//    assign fifo_rd_en = decoder_read ? decoder_rd_en : tb_rd_en;
-//    assign fifo_wr_en = encoder_write ? encoder_wr_en : tb_wr_en;
-//    assign fifo_din[31:0] = encoder_write ? encoder_packet[31:0] : tb_packet[31:0];
 
     assign pctofpga_fifo_din[31:0] = tb_packet[31:0];
     assign pctofpga_fifo_wr_en = tb_wr_en;
@@ -134,9 +152,10 @@ module full_system_tb(
         
         // Initial signal states
         sys_clk <= 0;
-        okUH <= 0;
+        okClk <= 0;
         reset <= 1;
-        anode <= 32'b0;
+        anodep <= 1'b0;
+        anoden <= 1'b1;
         tb_wr_en <= 0;
         tb_rd_en <= 0;
         tb_packet[31:0] <= 32'b0;
@@ -146,56 +165,58 @@ module full_system_tb(
         acknowledge <= 0;
         
         // Bring out of reset
-        repeat (10) @(posedge okUH);
+        repeat (10) @(posedge okClk);
         reset <= 0;
-        repeat (20) @(posedge okUH);
+        repeat (20) @(posedge okClk);
         
         // Write 16 bytes
         tb_packet[31:0] <= SPAD1;
-        @(posedge okUH);
+        @(posedge okClk);
         tb_wr_en <= 1;
-        @(posedge okUH);
+        @(posedge okClk);
         tb_packet[31:0] <= 32'd0;
-        @(posedge okUH);
+        @(posedge okClk);
         tb_packet[31:0] <= 32'd30;
-        @(posedge okUH);
+        @(posedge okClk);
         tb_packet[31:0] <= 32'd60;
-        @(posedge okUH);
+        @(posedge okClk);
         tb_wr_en <= 0;
         
         // Signal that the configuration is written, handshake with core
-        @(posedge okUH);
+        @(posedge okClk);
         config_written <= 1;
         @(posedge config_accepted);
-        @(posedge okUH);
+        @(posedge okClk);
         config_written <= 0;
         
         // Wait for test_ready signal, start measurement
         @(posedge ready_to_measure);
-        repeat(4) @(posedge okUH);
+        repeat(4) @(posedge okClk);
         start_measurement <= 1;
-        @(posedge okUH);
+        @(posedge okClk);
         start_measurement <= 0;
         
         // Run for 15 pulses
-        repeat (15) counter_pulse(COUNTS1);
+        repeat (COUNTS1) counter_pulse();
         
         // Stop the measurement
-        @(posedge okUH);
+        @(posedge okClk);
         stop_measurement <= 1;
-        @(posedge okUH);
+        @(posedge okClk);
         stop_measurement <= 0;
         
         // Wait for the packet to be written and then acknowledge, handshake
         @(posedge results_written);
-        @(posedge okUH);
+        @(posedge okClk);
         acknowledge <= 1;
         @(negedge results_written);
         acknowledge <= 0;
         
         // Read the contents of the FIFO out
-        repeat (10) @(posedge okUH);
+        repeat (10) @(posedge okClk);
         tb_rd_en <= 1;
+        repeat (2) @(posedge okClk);
+        first_result[31:0] <= fpgatopc_fifo_dout[31:0];
         @(posedge fpgatopc_fifo_empty);
         tb_rd_en <= 0;
         
@@ -210,6 +231,18 @@ module full_system_tb(
             $display("FIFO emptied correctly");
         end else begin
             $display("FIFO not emptied correctly");
+        end
+        
+        if (first_result[31:27] == SPAD1) begin
+            $display("Test 1 - SPAD number correctly output from FIFO");
+        end else begin
+            $display("Test 1 - SPAD number incorrectly output from FIFO");
+        end
+        
+        if (first_result[COUNTER_WIDTH-1:0] == COUNTS1) begin
+            $display("Test 1 - Count value correctly output from FIFO");
+        end else begin
+            $display("Test 1 - Count value incorrectly output from FIFO");
         end
                 
         $finish;
@@ -236,7 +269,7 @@ module full_system_tb(
 //        start_measurement <= 1;
         
 //        // Run for 15 pulses
-//        repeat (50) counter_pulse(31);
+//        repeat (50) counter_pulse();
         
 //        // Stop the measurement
 //        @(posedge sys_clk);
@@ -270,17 +303,18 @@ module full_system_tb(
     
     
     task counter_pulse;
-        input integer x;
         begin
-            anode[x] <= 1;
+            anodep <= 1;
+            anoden <= 0;
             #50000;
-            anode[x] <= 0;
+            anodep <= 0;
+            anoden <= 1;
             #50000;
         end
     endtask
     
     
-    // Instantiate core
+     // Instantiate core
     core core(
         .clk(sys_clk),
         .reset(reset),
@@ -302,28 +336,29 @@ module full_system_tb(
         .counter_clear(counter_clear),
         .results_written(results_written),
         .ready_to_measure(ready_to_measure),
-        .state(core_state)
+        .state(core_state[8:0])
     );
     
     // Instantiate counter
-    async_counter async_counter(
+    sync_counter #(.WIDTH(COUNTER_WIDTH)) sync_counter(
         .clear(counter_clear),
         .enable(counter_enable),
-        .spad_signal(spad_signal), 
+        .spad_signal(anode), 
         .avalanche_count(avalanche_count)
     );
-    
-    // Instantiate multiplexer
-    multiplexer_32to1 spad_mux(
-        .anode(anode),
-        .select(spad_number),
-        .spad_signal(spad_signal)
-    );
-    
+
+//    // Instantiate counter
+//    async_counter #(.Width(16)) async_counter (
+//        .clk(anode),
+//        .reset(counter_clear),
+//        .clk_follower(clk_follower),
+//        .count(avalanche_count)
+//    );
+
     // Instantiate FIFO for Frontpanel, this FIFO is written by FPGA and read by PC
     fifo_generator_fpgatopc frontpanel_fifo_32b_fpgatopc(
         .wr_clk(sys_clk),
-        .rd_clk(okUH),
+        .rd_clk(okClk),
         .rst(reset),
         .wr_en(fpgatopc_fifo_wr_en),
         .rd_en(fpgatopc_fifo_rd_en),
@@ -335,8 +370,9 @@ module full_system_tb(
         .valid(fpgatopc_fifo_valid)
     );
     
+    // Instantiate FIFO for Frontpanel, this FIFO is written by PC and read by FPGA
     fifo_generator_pctofpga frontpanel_fifo_32b_pctofpga(
-        .wr_clk(okUH),
+        .wr_clk(okClk),
         .rd_clk(sys_clk),
         .rst(reset),
         .wr_en(pctofpga_fifo_wr_en),
@@ -350,7 +386,7 @@ module full_system_tb(
     );
     
     // Instantiate encoder
-    encoder_fast_32b encoder_fast_32b(
+    encoder_fast_32b #(.COUNTER_WIDTH(COUNTER_WIDTH)) encoder_fast_32b(
         .clk(sys_clk),
         .avalanche_count(avalanche_count),
         .spad_number(spad_number),
@@ -388,6 +424,10 @@ module full_system_tb(
         .clock_pin(clock_pin),
         .data_pin(data_pin)
     );
+            
+    
+    // Differential signal buffers
+    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("LVDS_25")) anode_ibufds (.O(anode), .I(anodep), .IB(anoden));
     
 
     

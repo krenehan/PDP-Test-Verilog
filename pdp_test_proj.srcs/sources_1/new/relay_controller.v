@@ -67,12 +67,6 @@ module relay_controller(
         .slower_clk(slower_clk)
     );
     
-//    // Global clock buffer for slow_clk
-//    BUFG slow_clk_bufg(
-//        .I(slow_clk_unbuffered),
-//        .O(slow_clk)
-//    );
-    
     // Instantiate the shift register
     relay_shift_register relay_shift_register(
         .clk(clk),

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7k160tffg676-1" LaunchTime="1562097639">
+<GenRun Id="impl_1" LaunchPart="xc7k160tffg676-1" LaunchTime="1562804309">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-DRC" Name="top.drc"/>
   <File Type="BG-BGN" Name="top.bgn"/>
@@ -71,15 +71,6 @@
   <File Type="PA-TCL" Name="top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/async_counter.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/async_counter.v"/>
-        <Attr Name="ImportTime" Val="1555794980"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/core.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -110,10 +101,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Vivado/okLibrary.v">
+    <File Path="$PPRDIR/../FrontPanelHDL/XEM7360-K160T/Vivado/okLibrary.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Program Files/Opal Kelly/FrontPanelUSB/FrontPanelHDL/XEM7360-K160T/Vivado/okLibrary.v"/>
-        <Attr Name="ImportTime" Val="1525201188"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -176,10 +165,29 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/sync_counter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/sync_counter.v"/>
+        <Attr Name="ImportTime" Val="1562608663"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/top.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/top.v"/>
         <Attr Name="ImportTime" Val="1555912864"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/async_counter.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../cadshare/MOANA/MOANA2/user/krenehan/MOANA2_src/verilog/common/rtl/async_counter.v"/>
+        <Attr Name="ImportTime" Val="1559247163"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

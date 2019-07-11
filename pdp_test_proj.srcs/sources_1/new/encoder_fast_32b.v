@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module encoder_fast_32b(
+module encoder_fast_32b #(parameter COUNTER_WIDTH=16) (
     input clk,
-    input [15:0] avalanche_count,
+    input [COUNTER_WIDTH-1:0] avalanche_count,
     input [4:0] spad_number,
     input full,
     input encoder_write,
@@ -60,9 +60,8 @@ module encoder_fast_32b(
         // Assemble packet
         if (!fill_fifo_flag) begin
             // Assemble the packet
-            packet[15:0] <= avalanche_count[15:0];
-            packet[20:16] <= spad_number[4:0];
-            packet[31:21] <= 11'b0;
+            packet[COUNTER_WIDTH-1:0] <= avalanche_count[COUNTER_WIDTH-1:0];
+            packet[31:27] <= spad_number[4:0];
         end else begin
             packet[31:0] <= 32'b0;
         end

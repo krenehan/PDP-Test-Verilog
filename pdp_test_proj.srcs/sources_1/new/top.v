@@ -46,8 +46,8 @@ module top(
     output wire         data_pin,
     
     // SPAD pins
-    input wire [0:0]   anodep,
-    input wire [0:0]   anoden,
+    input wire          anodep,
+    input wire          anoden,
     
     // Chip ID pins
     input wire jan_b0,
@@ -67,28 +67,37 @@ module top(
     wire sys_clk;
     IBUFGDS osc_clk(.O(sys_clk), .I(sys_clkp), .IB(sys_clkn));
     
+    // Wires for counter
+    localparam COUNTER_WIDTH = 27;
+    wire counter_enable;
+    wire [COUNTER_WIDTH-1:0] avalanche_count;
+    wire anode;
+    wire counter_clear;
+    
     // Wires from core
     wire [8:0] core_state;
     
-    // Wires for led 
-    wire [3:0] led;
-    assign led[3:0] = core_state[3:0];
-    genvar i;        
-    generate        
-        for (i=0; i<4 ; i=i+1) begin
-            assign led_activelow[i] = ~led[i];
-        end        
-    endgenerate 
-    
-    // Wires for counter
-    wire counter_enable;
-    wire [15:0] avalanche_count;
-    wire [31:0] anode;
-    wire counter_clear;
+//    // Wires for led 
+//    wire [3:0] led;
+//    assign led[3:0] = core_state[3:0];
+//    genvar i;        
+//    generate        
+//        for (i=0; i<4 ; i=i+1) begin
+//            assign led_activelow[i] = ~led[i];
+//        end        
+//    endgenerate 
 
-    // Wires for mux
-    wire [4:0] spad_number;
-    //wire spad_signal;
+    // Wires for led
+    wire [3:0] led;
+    assign led[0] = anode;
+    assign led[3:1] = 2'b00;
+    genvar i;
+    generate
+        for (i=0; i<4; i=i+1) begin
+            assign led_activelow[i] = ~led[i];
+        end
+    endgenerate
+    
     
     // Wires for fpga to pc FIFO
     wire fpgatopc_fifo_full;
@@ -126,15 +135,12 @@ module top(
     wire clear_relay;
     wire relay_set;
     wire holding;
+    wire [4:0] spad_number;
     
     // Wires FrontPanel interface
     wire okClk;
     wire [112:0] okHE;
     wire [64:0] okEH;
-    
-    // FrontPanel triggers
-    //wire [31:0] triggers_in;
-    //wire [31:0] triggers_out;
     
     // FrontPanel wires
     wire [31:0] wires_in;
@@ -175,7 +181,6 @@ module top(
     assign wires_out[27] = halo_b0;
     assign wires_out[28] = nir_b0;
     assign wires_out[29] = jan_b0;
-
     
     // Reset
     wire reset;
@@ -214,18 +219,19 @@ module top(
     );
     
     // Instantiate counter
-    async_counter async_counter(
+    sync_counter #(.WIDTH(COUNTER_WIDTH)) sync_counter(
         .clear(counter_clear),
         .enable(counter_enable),
-        .spad_signal(anode[0]), 
+        .spad_signal(anode), 
         .avalanche_count(avalanche_count)
     );
-    
-//    // Instantiate multiplexer
-//    multiplexer_32to1 spad_mux(
-//        .anode(anode),
-//        .select(spad_number),
-//        .spad_signal(spad_signal)
+
+//    // Instantiate counter
+//    async_counter #(.Width(16)) async_counter (
+//        .clk(anode),
+//        .reset(counter_clear),
+//        .clk_follower(clk_follower),
+//        .count(avalanche_count)
 //    );
 
     // Instantiate FIFO for Frontpanel, this FIFO is written by FPGA and read by PC
@@ -243,6 +249,7 @@ module top(
         .valid(fpgatopc_fifo_valid)
     );
     
+    // Instantiate FIFO for Frontpanel, this FIFO is written by PC and read by FPGA
     fifo_generator_pctofpga frontpanel_fifo_32b_pctofpga(
         .wr_clk(okClk),
         .rd_clk(sys_clk),
@@ -258,7 +265,7 @@ module top(
     );
     
     // Instantiate encoder
-    encoder_fast_32b encoder_fast_32b(
+    encoder_fast_32b #(.COUNTER_WIDTH(COUNTER_WIDTH)) encoder_fast_32b(
         .clk(sys_clk),
         .avalanche_count(avalanche_count),
         .spad_number(spad_number),
@@ -297,7 +304,6 @@ module top(
         .data_pin(data_pin)
     );
         
-    
     // Instantiate host
     wire [65*3-1:0]  okEHx;
     okHost okHI(
@@ -309,23 +315,6 @@ module top(
         .okHE(okHE), 
         .okEH(okEH)
     );
-    
-//    // Trigger for PC writing configuration into FIFO
-//    okTriggerIn okTriggerIn(
-//        .okHE(okHE),
-//        .ep_addr(8'h40),
-//        .ep_clk(sys_clk),
-//        .ep_trigger(triggers_in)
-//    );
-    
-//    // Trigger out for FPGA telling PC that data has been written
-//    okTriggerOut okTriggerOut(
-//        .okHE(okHE),
-//        .okEH(okEHx[0*65 +: 65]),
-//        .ep_addr(8'h60),
-//        .ep_clk(sys_clkfifo_wr_en),
-//        .ep_trigger(triggers_out)
-//    );
     
     // Data for Pipe In
     okPipeIn config_pipein (
@@ -360,11 +349,12 @@ module top(
         .ep_datain(wires_out)
     );
     
+    
     // okWireOr to control bus traffic
     okWireOR # (.N(3)) wireOR (okEH, okEHx);        
     
     // Differential signal buffers
-    IBUFDS #(.DIFF_TERM("TRUE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("LVDS_25")) anode0 (.O(anode[0]), .I(anodep[0]), .IB(anoden[0]));
+    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("LVDS_25")) anode_ibufds (.O(anode), .I(anodep), .IB(anoden));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode1 (.O(anode[1]), .I(anodep[1]), .IB(anoden[1]));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode2 (.O(anode[2]), .I(anodep[2]), .IB(anoden[2]));
 //    IBUFDS #(.DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) anode3 (.O(anode[3]), .I(anodep[3]), .IB(anoden[3]));

@@ -104,12 +104,6 @@ set_property PACKAGE_PIN G22 [get_ports reset_board]
 set_property IOSTANDARD LVCMOS18 [get_ports reset_board]
 
 
-set_property IOSTANDARD LVDS_25 [get_ports {anodep[*]}]
-set_property IOSTANDARD LVDS_25 [get_ports {anoden[*]}]
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets {anode[0]}]
-#set_property DIFF_TERM TRUE [get_ports {anodep[*]}]
-#set_property DIFF_TERM TRUE [get_ports {anoden[*]}]
-
 # MC1-1 - L3P
 #set_property IOSTANDARD LVDS [get_ports {}]
 
@@ -118,8 +112,11 @@ set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets {anode[0]}]
 #set_property IOSTANDARD LVDS [get_ports {}]
 
 # MC1-3 - L3N
-set_property PACKAGE_PIN B17 [get_ports {anodep[0]}]
-set_property PACKAGE_PIN A17 [get_ports {anoden[0]}]
+set_property PACKAGE_PIN B17 [get_ports {anodep}]
+set_property PACKAGE_PIN A17 [get_ports {anoden}]
+set_property IOSTANDARD LVDS_25 [get_ports {anodep}]
+set_property IOSTANDARD LVDS_25 [get_ports {anoden}]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets {anode}]
 #set_property IOSTANDARD LVDS [get_ports {}]
 
 # MC1-4 - L4N
@@ -1690,41 +1687,43 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_activelow[*]}]
 #set_property PACKAGE_PIN K6 [get_ports {mgtrefclk_p}]
 #set_property PACKAGE_PIN K5 [get_ports {mgtrefclk_n}]
 
-# Fake clock for asynchronous counter input
-create_clock -period 50.000 -name {anodep[0]} -waveform {0.000 25.000} [get_ports {anodep[0]}]
-
-#create_generated_clock -name core/decoder_read -source [get_pins core/decoder_read_reg/C] -divide_by 1 [get_pins core/decoder_read_reg/Q]
-#create_generated_clock -name core/encoder_write -source [get_pins core/encoder_write_reg/C] -divide_by 1 [get_pins core/encoder_write_reg/Q]
-#create_generated_clock -name core/set_relay -source [get_pins core/set_relay_reg/C] -divide_by 1 [get_pins core/set_relay_reg/Q]
 
 
+# Generated clocks for decoder
+# The outputs of the state register control the logic, and they are defined as clocks with the same data rate as sys_clk, which is the C input to the flop
 create_generated_clock -name {decoder_fast_32b/state[0]} -source [get_pins {decoder_fast_32b/state_reg[0]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[0]/Q}]
 create_generated_clock -name {decoder_fast_32b/state[1]} -source [get_pins {decoder_fast_32b/state_reg[1]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[1]/Q}]
 create_generated_clock -name {decoder_fast_32b/state[2]} -source [get_pins {decoder_fast_32b/state_reg[2]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[2]/Q}]
 create_generated_clock -name {decoder_fast_32b/state[3]} -source [get_pins {decoder_fast_32b/state_reg[3]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[3]/Q}]
 create_generated_clock -name {decoder_fast_32b/state[4]} -source [get_pins {decoder_fast_32b/state_reg[4]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[4]/Q}]
 create_generated_clock -name {decoder_fast_32b/state[5]} -source [get_pins {decoder_fast_32b/state_reg[5]/C}] -divide_by 1 [get_pins {decoder_fast_32b/state_reg[5]/Q}]
+
+# Generated clocks for encoder
+# Outputs of the state register control the logic, and they are defined as clocks with the same data rate as sys_clk, which is the C input of the flop
 create_generated_clock -name {encoder_fast_32b/state[0]} -source [get_pins {encoder_fast_32b/state_reg[0]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[0]/Q}]
 create_generated_clock -name {encoder_fast_32b/state[1]} -source [get_pins {encoder_fast_32b/state_reg[1]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[1]/Q}]
 create_generated_clock -name {encoder_fast_32b/state[2]} -source [get_pins {encoder_fast_32b/state_reg[2]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[2]/Q}]
 create_generated_clock -name {encoder_fast_32b/state[3]} -source [get_pins {encoder_fast_32b/state_reg[3]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[3]/Q}]
 create_generated_clock -name {encoder_fast_32b/state[4]} -source [get_pins {encoder_fast_32b/state_reg[4]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[4]/Q}]
 create_generated_clock -name {encoder_fast_32b/state[5]} -source [get_pins {encoder_fast_32b/state_reg[5]/C}] -divide_by 1 [get_pins {encoder_fast_32b/state_reg[5]/Q}]
-create_generated_clock -name frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/wr_ack -source [get_pins frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/C] -divide_by 1 [get_pins frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/Q]
-create_generated_clock -name frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/valid -source [get_pins frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/C] -divide_by 1 [get_pins frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/Q]
-create_generated_clock -name okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949 -source [get_pins okHI/mmcm0/CLKOUT0] -divide_by 1 [get_pins {okHI/core0/core0/a0/d0/lc4da648cb12eeeb24e4d199c1195ed93_reg[4]/Q}]
-create_generated_clock -name {relay_controller/relay_clock_generator/S[0]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/C}] -divide_by 1 [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}]
-create_generated_clock -name {relay_controller/relay_shift_register/state_0[0]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/relay_shift_register/state_reg[0]/Q}]
-create_generated_clock -name {relay_controller/relay_shift_register/state_0[1]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/relay_shift_register/state_reg[1]/Q}]
-create_generated_clock -name {relay_controller/relay_shift_register/state_0[2]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/relay_shift_register/state_reg[2]/Q}]
-create_generated_clock -name {relay_controller/relay_shift_register/state_0[3]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/relay_shift_register/state_reg[3]/Q}]
-create_generated_clock -name {relay_controller/state[0]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[0]/Q}]
-create_generated_clock -name {relay_controller/state[1]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[1]/Q}]
-create_generated_clock -name {relay_controller/state[5]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[5]/Q}]
-create_generated_clock -name {relay_controller/state[6]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[6]/Q}]
-create_generated_clock -name {relay_controller/state_reg_n_0_[2]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[2]/Q}]
-create_generated_clock -name {relay_controller/state_reg_n_0_[3]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[3]/Q}]
-create_generated_clock -name {relay_controller/state_reg_n_0_[4]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[4]/Q}]
+
+# Generated clocks that I'm going to remove
+#create_generated_clock -name frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/wr_ack -source [get_pins frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/C] -divide_by 1 [get_pins frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/gwa.WR_ACK_reg/Q]
+#create_generated_clock -name frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/valid -source [get_pins frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/C] -divide_by 1 [get_pins frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/gv.ram_valid_d1_reg/Q]
+#create_generated_clock -name okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949 -source [get_pins okHI/mmcm0/CLKOUT0] -divide_by 1 [get_pins {okHI/core0/core0/a0/d0/lc4da648cb12eeeb24e4d199c1195ed93_reg[4]/Q}]
+
+# Generated clock for relay_clock_generator
+create_generated_clock -name {slower_clock} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/C}] -divide_by 1 [get_pins {relay_controller/relay_clock_generator/counter_reg[14]/Q}]
+create_generated_clock -name {slow_clock} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/C}] -divide_by 1 [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}]
+
+# Generated clocks for relay_controller
+create_generated_clock -name {relay_controller/state[0]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[0]/Q}]
+create_generated_clock -name {relay_controller/state[1]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[1]/Q}]
+create_generated_clock -name {relay_controller/state[2]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[2]/Q}]
+create_generated_clock -name {relay_controller/state[3]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[3]/Q}]
+create_generated_clock -name {relay_controller/state[4]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[4]/Q}]
+create_generated_clock -name {relay_controller/state[5]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[5]/Q}]
+create_generated_clock -name {relay_controller/state[6]} -source [get_pins {relay_controller/relay_clock_generator/counter_reg[13]/Q}] -divide_by 1 [get_pins {relay_controller/state_reg[6]/Q}]
 
 # IO pin constraint (useless because these are DC signals)
 create_clock -period 9.920 -name VIRTUAL_mmcm0_clk0 -waveform {0.000 4.960}

@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date             : Tue Jul  2 16:07:07 2019
-| Host             : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
+| Date             : Wed Jul 10 20:26:30 2019
+| Host             : linrack6.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7k160tffg676-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.338        |
+| Total On-Chip Power (W)  | 0.326        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.220        |
-| Device Static (W)        | 0.118        |
+| Dynamic (W)              | 0.210        |
+| Device Static (W)        | 0.116        |
 | Effective TJA (C/W)      | 1.9          |
-| Max Ambient (C)          | 84.3         |
-| Junction Temperature (C) | 25.7         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.027 |       34 |       --- |             --- |
-| Slice Logic              |     0.012 |     2657 |       --- |             --- |
-|   LUT as Logic           |     0.011 |     1064 |    101400 |            1.05 |
-|   Register               |    <0.001 |     1179 |    202800 |            0.58 |
+| Clocks                   |     0.025 |       28 |       --- |             --- |
+| Slice Logic              |     0.011 |     2679 |       --- |             --- |
+|   LUT as Logic           |     0.009 |     1060 |    101400 |            1.05 |
 |   LUT as Distributed RAM |    <0.001 |       84 |     35000 |            0.24 |
-|   CARRY4                 |    <0.001 |       54 |     25350 |            0.21 |
+|   Register               |    <0.001 |     1202 |    202800 |            0.59 |
+|   CARRY4                 |    <0.001 |       57 |     25350 |            0.22 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes            |    <0.001 |        8 |    101400 |           <0.01 |
 |   Others                 |     0.000 |       75 |       --- |             --- |
-| Signals                  |     0.009 |     2176 |       --- |             --- |
+| Signals                  |     0.008 |     2217 |       --- |             --- |
 | Block RAM                |     0.002 |        2 |       325 |            0.62 |
 | MMCM                     |     0.106 |        1 |         8 |           12.50 |
-| I/O                      |     0.063 |       65 |       400 |           16.25 |
-| Static Power             |     0.118 |          |           |                 |
-| Total                    |     0.338 |          |           |                 |
+| I/O                      |     0.059 |       65 |       400 |           16.25 |
+| Static Power             |     0.116 |          |           |                 |
+| Total                    |     0.326 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,10 +76,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.095 |       0.054 |      0.041 |
+| Vccint    |       1.000 |     0.090 |       0.049 |      0.041 |
 | Vccaux    |       1.800 |     0.082 |       0.064 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.012 |      0.001 |
-| Vcco25    |       2.500 |     0.002 |       0.001 |      0.001 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.005 |       0.004 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -130,41 +130,35 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------+
-| Clock                                                                                                      | Domain                                                                                                     | Constraint (ns) |
-+------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------+
-| anodep[0]                                                                                                  | anodep[0]                                                                                                  |            50.0 |
-| decoder_fast_32b/state[0]                                                                                  | decoder_fast_32b/state[0]                                                                                  |             5.0 |
-| decoder_fast_32b/state[1]                                                                                  | decoder_fast_32b/state[1]                                                                                  |             5.0 |
-| decoder_fast_32b/state[2]                                                                                  | decoder_fast_32b/state[2]                                                                                  |             5.0 |
-| decoder_fast_32b/state[3]                                                                                  | decoder_fast_32b/state[3]                                                                                  |             5.0 |
-| decoder_fast_32b/state[4]                                                                                  | decoder_fast_32b/state[4]                                                                                  |             5.0 |
-| decoder_fast_32b/state[5]                                                                                  | decoder_fast_32b/state[5]                                                                                  |             5.0 |
-| encoder_fast_32b/state[0]                                                                                  | encoder_fast_32b/state[0]                                                                                  |             5.0 |
-| encoder_fast_32b/state[1]                                                                                  | encoder_fast_32b/state[1]                                                                                  |             5.0 |
-| encoder_fast_32b/state[2]                                                                                  | encoder_fast_32b/state[2]                                                                                  |             5.0 |
-| encoder_fast_32b/state[3]                                                                                  | encoder_fast_32b/state[3]                                                                                  |             5.0 |
-| encoder_fast_32b/state[4]                                                                                  | encoder_fast_32b/state[4]                                                                                  |             5.0 |
-| encoder_fast_32b/state[5]                                                                                  | encoder_fast_32b/state[5]                                                                                  |             5.0 |
-| frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/wr_ack | frontpanel_fifo_32b_fpgatopc/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/wr_ack |             5.0 |
-| frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/valid  | frontpanel_fifo_32b_pctofpga/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.rhf/valid  |             5.0 |
-| mmcm0_clk0                                                                                                 | okHI/mmcm0_clk0                                                                                            |             9.9 |
-| mmcm0_clkfb                                                                                                | okHI/mmcm0_clkfb                                                                                           |             9.9 |
-| okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949                                                   | okHI/core0/core0/a0/d0/l380f95c05ffaf9f64e84defb5d30e949                                                   |             9.9 |
-| okUH0                                                                                                      | okUH[0]                                                                                                    |             9.9 |
-| relay_controller/relay_clock_generator/S[0]                                                                | relay_controller/relay_clock_generator/S[0]                                                                |             5.0 |
-| relay_controller/relay_shift_register/state_0[0]                                                           | relay_controller/relay_shift_register/state_0[0]                                                           |             5.0 |
-| relay_controller/relay_shift_register/state_0[1]                                                           | relay_controller/relay_shift_register/state_0[1]                                                           |             5.0 |
-| relay_controller/relay_shift_register/state_0[3]                                                           | relay_controller/relay_shift_register/state_0[3]                                                           |             5.0 |
-| relay_controller/state[0]                                                                                  | relay_controller/state[0]                                                                                  |             5.0 |
-| relay_controller/state[1]                                                                                  | relay_controller/state[1]                                                                                  |             5.0 |
-| relay_controller/state[5]                                                                                  | relay_controller/state[5]                                                                                  |             5.0 |
-| relay_controller/state[6]                                                                                  | relay_controller/state[6]                                                                                  |             5.0 |
-| relay_controller/state_reg_n_0_[2]                                                                         | relay_controller/state_reg_n_0_[2]                                                                         |             5.0 |
-| relay_controller/state_reg_n_0_[3]                                                                         | relay_controller/state_reg_n_0_[3]                                                                         |             5.0 |
-| relay_controller/state_reg_n_0_[4]                                                                         | relay_controller/state_reg_n_0_[4]                                                                         |             5.0 |
-| sys_clk                                                                                                    | sys_clkp                                                                                                   |             5.0 |
-+------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------+
++---------------------------+---------------------------------------------+-----------------+
+| Clock                     | Domain                                      | Constraint (ns) |
++---------------------------+---------------------------------------------+-----------------+
+| decoder_fast_32b/state[0] | decoder_fast_32b/state[0]                   |             5.0 |
+| decoder_fast_32b/state[1] | decoder_fast_32b/state[1]                   |             5.0 |
+| decoder_fast_32b/state[2] | decoder_fast_32b/state[2]                   |             5.0 |
+| decoder_fast_32b/state[3] | decoder_fast_32b/state[3]                   |             5.0 |
+| decoder_fast_32b/state[4] | decoder_fast_32b/state[4]                   |             5.0 |
+| decoder_fast_32b/state[5] | decoder_fast_32b/state[5]                   |             5.0 |
+| encoder_fast_32b/state[0] | encoder_fast_32b/state[0]                   |             5.0 |
+| encoder_fast_32b/state[1] | encoder_fast_32b/state[1]                   |             5.0 |
+| encoder_fast_32b/state[2] | encoder_fast_32b/state[2]                   |             5.0 |
+| encoder_fast_32b/state[3] | encoder_fast_32b/state[3]                   |             5.0 |
+| encoder_fast_32b/state[4] | encoder_fast_32b/state[4]                   |             5.0 |
+| encoder_fast_32b/state[5] | encoder_fast_32b/state[5]                   |             5.0 |
+| mmcm0_clk0                | okHI/mmcm0_clk0                             |             9.9 |
+| mmcm0_clkfb               | okHI/mmcm0_clkfb                            |             9.9 |
+| okUH0                     | okUH[0]                                     |             9.9 |
+| relay_controller/state[0] | relay_controller/state[0]                   |             5.0 |
+| relay_controller/state[1] | relay_controller/state[1]                   |             5.0 |
+| relay_controller/state[2] | relay_controller/state_reg_n_0_[2]          |             5.0 |
+| relay_controller/state[3] | relay_controller/state_reg_n_0_[3]          |             5.0 |
+| relay_controller/state[4] | relay_controller/state_reg_n_0_[4]          |             5.0 |
+| relay_controller/state[5] | relay_controller/state[5]                   |             5.0 |
+| relay_controller/state[6] | relay_controller/state[6]                   |             5.0 |
+| slow_clock                | relay_controller/relay_clock_generator/CLK  |             5.0 |
+| slower_clock              | relay_controller/relay_clock_generator/S[0] |             5.0 |
+| sys_clk                   | sys_clkp                                    |             5.0 |
++---------------------------+---------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -176,20 +170,20 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| top                            |     0.220 |
-|   decoder_fast_32b             |     0.008 |
-|   encoder_fast_32b             |     0.008 |
+| top                            |     0.210 |
+|   decoder_fast_32b             |     0.006 |
+|   encoder_fast_32b             |     0.007 |
 |   frontpanel_fifo_32b_fpgatopc |     0.003 |
 |     U0                         |     0.003 |
 |       inst_fifo_gen            |     0.003 |
 |   frontpanel_fifo_32b_pctofpga |     0.001 |
 |     U0                         |     0.001 |
 |       inst_fifo_gen            |     0.001 |
-|   okHI                         |     0.132 |
-|     core0                      |     0.016 |
-|       core0                    |     0.016 |
-|   relay_controller             |     0.013 |
-|     relay_shift_register       |     0.005 |
+|   okHI                         |     0.131 |
+|     core0                      |     0.014 |
+|       core0                    |     0.014 |
+|   relay_controller             |     0.011 |
+|     relay_shift_register       |     0.003 |
 +--------------------------------+-----------+
 
 

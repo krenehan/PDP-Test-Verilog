@@ -31,12 +31,11 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/async_counter.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/core.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/decoder_fast_32b.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/encoder_fast_32b.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okCoreHarness.v
-  /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okLibrary.v
+  /u5/krenehan/vivado/FrontPanelHDL/XEM7360-K160T/Vivado/okLibrary.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okPipeIn.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okPipeOut.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okWireIn.v
@@ -44,6 +43,7 @@ read_verilog -library xil_defaultlib {
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v
+  /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/sync_counter.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/top.v
 }
 read_ip -quiet /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/ip/fifo_generator_fpgatopc/fifo_generator_fpgatopc.xci
