@@ -172,16 +172,21 @@ module top(
     assign wires_out[5] = fpgatopc_fifo_empty;
     assign wires_out[10:6] = spad_number[4:0];
     assign wires_out[19:11] = core_state[8:0];
-    assign wires_out[20] = board_b0;
-    assign wires_out[21] = board_b1;
-    assign wires_out[22] = board_b2;
-    assign wires_out[23] = array_section_b0;
-    assign wires_out[24] = array_section_b1;
-    assign wires_out[25] = array_section_b2;
-    assign wires_out[26] = spad_b0;
-    assign wires_out[27] = halo_b0;
-    assign wires_out[28] = nir_b0;
-    assign wires_out[29] = jan_b0;
+    assign wires_out[29:20] =   {board_b0, board_b1, board_b2,
+                                array_section_b0, array_section_b1, array_section_b2,
+                                spad_b0, halo_b0, nir_b0, jan_b0};
+//    assign wires_out[20] = board_b0;
+//    assign wires_out[21] = board_b1;
+//    assign wires_out[22] = board_b2;
+//    assign wires_out[23] = array_section_b0;
+//    assign wires_out[24] = array_section_b1;
+//    assign wires_out[25] = array_section_b2;
+//    assign wires_out[26] = spad_b0;
+//    assign wires_out[27] = halo_b0;
+//    assign wires_out[28] = nir_b0;
+//    assign wires_out[29] = jan_b0;
+    wire over_threshold;
+    assign wires_out[30] = over_threshold;
     
     // Reset
     wire reset;
@@ -225,11 +230,22 @@ module top(
     assign anode_raw = anode;
     debouncer #(.COUNTER_WIDTH(10)) debouncer (
         .clk(sys_clk),
-        .reset(reset),
+        .reset(counter_clear),
         .enable(counter_enable),
         .in(anode_raw),
         .out(anode_debounced)
     );
+    
+    // Over threshold detector
+    overThresholdDetector #(.WIDTH(20)) overThresholdDetector(
+        .clk(sys_clk),
+        .reset(counter_clear),
+        .enable(counter_enable),
+        .anode(anode_raw),
+        .over_threshold(over_threshold)
+    );
+    
+    
     
     // Instantiate counter
     sync_counter #(.WIDTH(COUNTER_WIDTH)) sync_counter(

@@ -41,6 +41,7 @@ read_verilog -library xil_defaultlib {
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okPipeOut.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okWireIn.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/imports/Vivado/okWireOut.v
+  /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/overThresholdDetector.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_clock_generator_no_reset.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_controller.v
   /u5/krenehan/vivado/pdp_test_proj/pdp_test_proj.srcs/sources_1/new/relay_shift_register.v

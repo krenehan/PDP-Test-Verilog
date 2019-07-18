@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3.1 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-| Date             : Thu Jul 11 04:39:12 2019
-| Host             : linrack6.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
+| Date             : Wed Jul 17 18:33:41 2019
+| Host             : linrack5.ee.columbia.edu running 64-bit Red Hat Enterprise Linux Workstation release 6.10 (Santiago)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7k160tffg676-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.327        |
+| Total On-Chip Power (W)  | 0.329        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.211        |
+| Dynamic (W)              | 0.213        |
 | Device Static (W)        | 0.116        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 84.4         |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.026 |       28 |       --- |             --- |
-| Slice Logic              |     0.011 |     2707 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     1076 |    101400 |            1.06 |
+| Clocks                   |     0.027 |       28 |       --- |             --- |
+| Slice Logic              |     0.011 |     2771 |       --- |             --- |
+|   LUT as Logic           |     0.009 |     1103 |    101400 |            1.09 |
+|   Register               |    <0.001 |     1242 |    202800 |            0.61 |
 |   LUT as Distributed RAM |    <0.001 |       84 |     35000 |            0.24 |
-|   Register               |    <0.001 |     1216 |    202800 |            0.60 |
-|   CARRY4                 |    <0.001 |       57 |     25350 |            0.22 |
+|   CARRY4                 |    <0.001 |       62 |     25350 |            0.24 |
 |   F7/F8 Muxes            |    <0.001 |        8 |    101400 |           <0.01 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |       76 |       --- |             --- |
-| Signals                  |     0.008 |     2228 |       --- |             --- |
+|   Others                 |     0.000 |       79 |       --- |             --- |
+| Signals                  |     0.008 |     2272 |       --- |             --- |
 | Block RAM                |     0.002 |        2 |       325 |            0.62 |
 | MMCM                     |     0.106 |        1 |         8 |           12.50 |
 | I/O                      |     0.059 |       65 |       400 |           16.25 |
 | Static Power             |     0.116 |          |           |                 |
-| Total                    |     0.327 |          |           |                 |
+| Total                    |     0.329 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.090 |       0.049 |      0.041 |
+| Vccint    |       1.000 |     0.092 |       0.051 |      0.041 |
 | Vccaux    |       1.800 |     0.082 |       0.064 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.012 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -170,19 +170,19 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| top                            |     0.211 |
-|   decoder_fast_32b             |     0.006 |
+| top                            |     0.213 |
+|   decoder_fast_32b             |     0.007 |
 |   encoder_fast_32b             |     0.007 |
 |   frontpanel_fifo_32b_fpgatopc |     0.003 |
 |     U0                         |     0.003 |
 |       inst_fifo_gen            |     0.003 |
-|   frontpanel_fifo_32b_pctofpga |     0.002 |
-|     U0                         |     0.002 |
-|       inst_fifo_gen            |     0.002 |
+|   frontpanel_fifo_32b_pctofpga |     0.001 |
+|     U0                         |     0.001 |
+|       inst_fifo_gen            |     0.001 |
 |   okHI                         |     0.131 |
-|     core0                      |     0.014 |
-|       core0                    |     0.014 |
-|   relay_controller             |     0.011 |
+|     core0                      |     0.015 |
+|       core0                    |     0.015 |
+|   relay_controller             |     0.012 |
 |     relay_shift_register       |     0.003 |
 +--------------------------------+-----------+
 

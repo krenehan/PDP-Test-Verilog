@@ -76,7 +76,7 @@ module debouncer #(parameter COUNTER_WIDTH=7) (
     );
     
     // Counter logic
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             count = 0;
         end else if (flop1_out ^ flop2_out) begin
@@ -91,7 +91,7 @@ module debouncer #(parameter COUNTER_WIDTH=7) (
     end
     
     // Indicate when counter is full
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             counter_full <= 0;
         end else begin
